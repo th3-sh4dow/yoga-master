@@ -65,6 +65,35 @@
                 padding: 20px;
             }
         }
+        
+        /* Notification Banner Styles */
+        @keyframes ring {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(10deg); }
+            20% { transform: rotate(-10deg); }
+            30% { transform: rotate(10deg); }
+            40% { transform: rotate(-10deg); }
+            50% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        .notification-banner {
+            border-bottom: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .notification-banner .notification-content {
+                font-size: 14px;
+                text-align: center;
+            }
+            .notification-banner .col-md-1 {
+                display: none;
+            }
+            .notification-banner .col-md-3 {
+                text-align: center !important;
+                margin-top: 10px;
+            }
+        }
     </style>
 
 </head>
@@ -146,6 +175,30 @@
         <!-- container Ended-->
     </section>
     <!-- Banner section Ended -->
+    
+    <!-- Notification Banner Start -->
+    <div class="notification-banner" style="background: linear-gradient(90deg, #5ba17a 0%, #4a9268 100%); color: white; padding: 15px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-1 text-center">
+                    <i class="fa fa-bell" style="font-size: 20px; animation: ring 2s infinite;"></i>
+                </div>
+                <div class="col-md-8">
+                    <div class="notification-content">
+                        <strong>🎉 Special Offer:</strong> Book 30 days in advance and get 25% OFF on all retreats! 
+                        <span style="margin-left: 20px;">📢 <strong>New:</strong> Online yoga courses now available from ₹1,999</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-right">
+                    <a href="courses.html" class="btn btn-light btn-sm" style="color: #5ba17a; font-weight: 600; border-radius: 20px; padding: 8px 20px;">
+                        View Offers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Notification Banner End -->
+    
     <!-- About section start-->
     <section class="about">
         <!-- container Start-->
