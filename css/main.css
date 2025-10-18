@@ -217,7 +217,6 @@ header .social-icons i {
 }
 
 .sticky img {
-    width: 30%;
     transition-duration: 0.5s;
     padding: 6px 0;
 }
@@ -547,7 +546,7 @@ header .border-img {
     position: relative;
     display: block;
     background-color: transparent;
-    color: #222;
+    color: #000;
     text-align: center;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -1024,7 +1023,7 @@ header .border-img {
     border-radius: 100px;
     text-transform: uppercase;
     background-color: transparent;
-    color: #cccccc;
+    color: #000;
     border: 2px solid #b6b6b7;
     font-family: 'Montserrat', sans-serif;
 }
@@ -1203,13 +1202,13 @@ header .border-img {
 }
 
 #about-us h5 {
-    color: #616161;
+    color: #000;
     font-size: 16px;
     font-weight: 500;
 }
 
 #about-us h5 a {
-    color: #616161;
+    color: #000;
 }
 
 #about-us h5 span {
@@ -1227,7 +1226,7 @@ header .border-img {
 
 #about-us p {
     margin: 0;
-    color: #a3a3a3;
+    color: #000;
     font-size: 16px;
     line-height: 35px;
     letter-spacing: 0.5px;
@@ -1284,7 +1283,7 @@ header .border-img {
 }
 
 #services h2 {
-    color: #362f2d;
+    color: #000;
     font-size: 56px;
     padding-bottom: 30px;
     font-weight: 500;
@@ -1302,7 +1301,7 @@ header .border-img {
 }
 
 #services .heading h3 {
-    color: #111111;
+    color: #000;
     font-size: 30px;
     padding-bottom: 10px;
     font-weight: 500;
@@ -1313,7 +1312,7 @@ header .border-img {
     font-size: 22px;
     line-height: 2;
     font-weight: 400;
-    color: #a3a3a3;
+    color: #000;
 }
 
 #services .heading {
@@ -1360,7 +1359,7 @@ header .border-img {
 }
 
 #products h2 {
-    color: #362f2d;
+    color: #000;
     font-size: 56px;
     padding-bottom: 30px;
     font-weight: 500;
@@ -1378,7 +1377,7 @@ header .border-img {
 }
 
 #products .heading h3 {
-    color: #111111;
+    color: #000;
     font-size: 30px;
     padding-bottom: 10px;
     font-weight: 500;
@@ -1389,7 +1388,7 @@ header .border-img {
     font-size: 18px;
     line-height: 35px;
     font-weight: 400;
-    color: #a3a3a3;
+    color: #000;
 }
 
 #products .heading {
@@ -1446,7 +1445,7 @@ header .border-img {
 }
 
 #rates h2 {
-    color: #362f2d;
+    color: #000;
     font-size: 56px;
     padding-bottom: 30px;
     font-weight: 500;
@@ -1464,7 +1463,7 @@ header .border-img {
 }
 
 #rates .heading h3 {
-    color: #111111;
+    color: #000;
     font-size: 30px;
     padding-bottom: 10px;
     font-weight: 500;
@@ -1475,7 +1474,7 @@ header .border-img {
     font-size: 18px;
     line-height: 35px;
     font-weight: 400;
-    color: #a3a3a3;
+    color: #000;
 }
 
 #rates .heading {
@@ -1512,18 +1511,18 @@ header .border-img {
 
 .inner-text h4 {
     font-size: 17px;
-    color: #737373;
+    color: #000;
     font-weight: 400;
     padding-bottom: 20px;
     text-align: center;
 }
 
 .inner-text h4 a {
-    color: #737373;
+    color: #000;
 }
 
 .inner-text span {
-    color: #737373;
+    color: #000;
     font-weight: 500;
     border-bottom: 1px solid gray;
 }
@@ -1707,7 +1706,7 @@ header .border-img {
 
 #blog_single p {
     margin: 0;
-    color: #a3a3a3;
+    color: #000;
     font-size: 16px;
     line-height: 35px;
     letter-spacing: 0.5px;
@@ -2395,7 +2394,7 @@ header .border-img {
         letter-spacing: 0.5px;
         line-height: 30px;
         font-weight: 400;
-        color: #a3a3a3;
+        color: #000;
     }
     #products h2 {
         font-size: 40px;
@@ -2446,7 +2445,7 @@ header .border-img {
         letter-spacing: 0.5px;
         line-height: 30px;
         font-weight: 400;
-        color: #a3a3a3;
+        color: #000;
     }
     #rates h2 {
         font-size: 40px;

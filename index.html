@@ -26,7 +26,7 @@
             border-radius: 0;
             border: 2px solid #ebeaea;
             background: #ebeaea;
-            color: #666;
+            color: #000;
             margin-right: 0;
             transition: all 0.3s ease;
         }
@@ -63,6 +63,26 @@
             }
             .tabbed-section .tab-content {
                 padding: 20px;
+            }
+            
+            /* Add side margins for mobile */
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Specific sections that need more margin */
+            .about .container,
+            .services .container-fluid,
+            .section-4 .container-fluid,
+            .banner-home .container {
+                padding-left: 25px;
+                padding-right: 25px;
             }
         }
         
@@ -378,27 +398,27 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#programme-tab" role="tab" style="color: #666; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
+                            <a class="nav-link" data-toggle="tab" href="#programme-tab" role="tab" style="color: #000; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
                                 <h4 style="margin: 0; font-size: 15px; font-weight: 600;">The Programme</h4>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#rates-tab" role="tab" style="color: #666; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
+                            <a class="nav-link" data-toggle="tab" href="#rates-tab" role="tab" style="color: #000; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
                                 <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Rates & Prices</h4>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#schedule-tab" role="tab" style="color: #666; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
+                            <a class="nav-link" data-toggle="tab" href="#schedule-tab" role="tab" style="color: #000; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
                                 <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Schedule</h4>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#accommodation-tab" role="tab" style="color: #666; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
+                            <a class="nav-link" data-toggle="tab" href="#accommodation-tab" role="tab" style="color: #000; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
                                 <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Accommodation</h4>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#practical-tab" role="tab" style="color: #666; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
+                            <a class="nav-link" data-toggle="tab" href="#practical-tab" role="tab" style="color: #000; border: 2px solid #ebeaea; background: #ebeaea; border-radius: 0;">
                                 <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Practical Info</h4>
                             </a>
                         </li>
@@ -700,7 +720,7 @@
                 $('.tabbed-section .nav-tabs .nav-link').removeClass('active').css({
                     'border': '2px solid #ebeaea',
                     'background': '#ebeaea',
-                    'color': '#666'
+                    'color': '#000'
                 });
                 $('.tabbed-section .tab-pane').removeClass('show active');
                 
@@ -733,7 +753,7 @@
                         $(this).css({
                             'border': '2px solid #ebeaea',
                             'background': '#ebeaea',
-                            'color': '#666'
+                            'color': '#000'
                         });
                     }
                 }

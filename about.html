@@ -19,7 +19,93 @@
             height: auto;
             padding-top: 200px;
         }
-
+        
+        /* About page styling */
+        #about-us {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .about-section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-section h3 {
+            color: #5ba17a;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .about-section h4 {
+            color: #5ba17a;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 2px solid #5ba17a;
+            padding-bottom: 10px;
+        }
+        
+        .feature-box {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #5ba17a;
+        }
+        
+        .feature-box h5 {
+            color: #5ba17a;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #5ba17a 0%, #4a9268 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            margin-bottom: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .about-section {
+                padding: 25px;
+                margin-bottom: 20px;
+            }
+            
+            #about-us {
+                padding: 40px 0;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -73,37 +159,164 @@
 
     <section class="banner-another"></section>
     <!-- About Section Start -->
-    <div id="about-us">
+    <section id="about-us">
         <div class="container">
-            <h3 data-aos="fade-up" data-aos-delay="300">About Natureland–YogChetna <i class="fa fa-leaf"></i></h3>
-            <div class="row" data-aos="fade-up" data-aos-delay="500">
-                <div>
-                    <img src="images/Natureland Natural View/IMG_4259 (1).JPG" alt="Natureland YogChetna Natural View" class="thumbnail image">
-                    <p><strong>Natureland–YogChetna</strong> is a serene retreat in Jamshedpur, created to help you experience authentic yogic living. Rooted in the Five Points of Yoga, our programmes blend daily yoga, meditation, vegetarian meals, and spiritual talks with the simplicity of Ashram life.</p>
-                    
-                    <p>Through this collaboration of Natureland and YogChetna, we offer a space to recharge your body, calm your mind, and rediscover inner peace—whether you are a beginner or an experienced practitioner.</p>
-                    
-                    <h4><i class="fa fa-star"></i> A home for balance, healing, and self-discovery <i class="fa fa-star"></i></h4>
-                    
-                    <h4><i class="fa fa-heart"></i> Our Philosophy</h4>
-                    <p>We follow the Five Points of Yoga which include proper exercise (asanas), proper breathing (pranayama), proper relaxation, proper diet (vegetarian nutrition), and positive thinking & meditation. Our daily schedule is designed to bring balance, discipline, and inner harmony.</p>
-                    
-                    <h4><i class="fa fa-leaf"></i> What Makes Us Special</h4>
-                    <ul>
-                        <li><strong>Authentic Ashram Experience:</strong> Live the traditional yogic lifestyle with structured daily routines</li>
-                        <li><strong>Expert Guidance:</strong> Learn from experienced yoga teachers and spiritual guides</li>
-                        <li><strong>Natural Healing:</strong> Experience holistic therapies including mud baths, steam treatments, and Ayurvedic massages</li>
-                        <li><strong>Satvic Living:</strong> Enjoy wholesome vegetarian meals prepared with love and mindfulness</li>
-                        <li><strong>Community Service:</strong> Participate in karma yoga and contribute to the ashram community</li>
-                        <li><strong>Peaceful Environment:</strong> Surrounded by natural beauty in the hills of Jamshedpur</li>
-                    </ul>
-                    
-                    <h4><i class="fa fa-map-marker"></i> Our Location</h4>
-                    <p>Located at Village Cholagora on the Jamshedpur–Galudih Road, our retreat offers a perfect escape from city life while remaining easily accessible. The natural surroundings provide an ideal environment for meditation, yoga practice, and spiritual growth.</p>
+            <!-- Main About Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="300">
+                <h3><i class="fa fa-leaf"></i> About Natureland–YogChetna</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/Natureland Natural View/IMG_4259 (1).JPG" alt="Natureland YogChetna Natural View" class="img-fluid rounded mb-4">
+                    </div>
+                    <div class="col-md-6">
+                        <p class="lead"><strong>Natureland–YogChetna</strong> is a serene retreat in Jamshedpur, created to help you experience authentic yogic living.</p>
+                        <p>Rooted in the Five Points of Yoga, our programmes blend daily yoga, meditation, vegetarian meals, and spiritual talks with the simplicity of Ashram life.</p>
+                        <p>Through this collaboration of Natureland and YogChetna, we offer a space to recharge your body, calm your mind, and rediscover inner peace—whether you are a beginner or an experienced practitioner.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="400">
+                <h4><i class="fa fa-star"></i> A Home for Balance, Healing, and Self-Discovery</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <h5><i class="fa fa-balance-scale"></i> Balance</h5>
+                            <p>Find harmony between mind, body, and spirit through structured daily practices and mindful living.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <h5><i class="fa fa-heart"></i> Healing</h5>
+                            <p>Experience natural healing through yoga, meditation, Ayurvedic therapies, and wholesome nutrition.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <h5><i class="fa fa-search"></i> Self-Discovery</h5>
+                            <p>Embark on a journey of inner exploration through spiritual teachings and contemplative practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Philosophy Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="500">
+                <h4><i class="fa fa-heart"></i> Our Philosophy</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>We follow the <strong>Five Points of Yoga</strong> which form the foundation of our daily practice and lifestyle:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-check-circle text-success"></i> <strong>Proper Exercise</strong> (Asanas)</li>
+                                    <li><i class="fa fa-check-circle text-success"></i> <strong>Proper Breathing</strong> (Pranayama)</li>
+                                    <li><i class="fa fa-check-circle text-success"></i> <strong>Proper Relaxation</strong></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-check-circle text-success"></i> <strong>Proper Diet</strong> (Vegetarian Nutrition)</li>
+                                    <li><i class="fa fa-check-circle text-success"></i> <strong>Positive Thinking</strong> & Meditation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>Our daily schedule is designed to bring balance, discipline, and inner harmony to all aspects of life.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/Yoga and Naturopathy Retreat/IMG-20250608-WA0008 (1).jpg" alt="Yoga Philosophy" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+
+            <!-- What Makes Us Special -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="600">
+                <h4><i class="fa fa-leaf"></i> What Makes Us Special</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <h5><i class="fa fa-om"></i> Authentic Ashram Experience</h5>
+                            <p>Live the traditional yogic lifestyle with structured daily routines, satsang, and community living.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h5><i class="fa fa-user-md"></i> Expert Guidance</h5>
+                            <p>Learn from experienced yoga teachers and spiritual guides who provide personalized instruction.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h5><i class="fa fa-leaf"></i> Natural Healing</h5>
+                            <p>Experience holistic therapies including mud baths, steam treatments, and Ayurvedic massages.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <h5><i class="fa fa-cutlery"></i> Satvic Living</h5>
+                            <p>Enjoy wholesome vegetarian meals prepared with love, mindfulness, and fresh local ingredients.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h5><i class="fa fa-users"></i> Community Service</h5>
+                            <p>Participate in karma yoga and contribute to the ashram community through selfless service.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h5><i class="fa fa-tree"></i> Peaceful Environment</h5>
+                            <p>Surrounded by natural beauty in the serene hills of Jamshedpur, away from city noise.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="700">
+                <h4><i class="fa fa-map-marker"></i> Our Location</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p><strong>Address:</strong> Village Cholagora, Jamshedpur–Galudih Road, Jamshedpur, Jharkhand</p>
+                        <p>Our retreat offers a perfect escape from city life while remaining easily accessible. The natural surroundings provide an ideal environment for meditation, yoga practice, and spiritual growth.</p>
+                        <p><strong>Contact Information:</strong></p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-phone"></i> <strong>Phone:</strong> +91-6203517866 (WhatsApp)</li>
+                            <li><i class="fa fa-envelope"></i> <strong>Email:</strong> naturelandyogchetna@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/Natureland Natural View/IMG_4262 (1).JPG" alt="Natureland Location" class="img-fluid rounded">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" data-aos="fade-up" data-aos-delay="800">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <div class="stat-label">Years of Service</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <div class="stat-label">Happy Guests</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Healing Therapies</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">Peaceful Environment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- About Section End -->
 
     <footer class="contact">

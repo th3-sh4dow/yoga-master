@@ -19,7 +19,31 @@
             height: auto;
             padding-top: 200px;
         }
-
+        
+        /* Add side margins for mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Specific sections that need more margin */
+            #services .container {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+            
+            /* Ensure content doesn't touch screen edges */
+            .part-1, .part-2 {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
     </style>
 </head>
 
