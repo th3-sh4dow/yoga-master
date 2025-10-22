@@ -141,37 +141,89 @@
             <div class="row" data-aos="fade-up" data-aos-delay="300">
                 <div class="col-md-12">
                     <div class="alert alert-info">
-                        <h4>Standard Rates (All Year Round)</h4>
-                        <p><strong>All rates include:</strong> meals, yoga classes, meditation, satsang, and
-                            participation in Ashram activities.</p>
-                        <p><strong>Minimum stay:</strong> 3 nights | <strong>Advance booking required</strong></p>
+                        <h4>Program-Based Pricing</h4>
+                        <p><strong>Prices are per person according to the Program and the Package with single occupancy in double occupancy price will little drop.</strong></p>
+                        <p><strong>All rates include:</strong> Sattvic meals, yoga and meditation classes, Naturopathic Therapy and participation in all our activities.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Dormitory Bed -->
-            <div class="part-1" data-aos="fade-up" data-aos-delay="400">
+            <!-- Program Pricing Table -->
+            <div class="row" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead style="background: #5ba17a; color: white;">
+                                <tr>
+                                    <th>Program</th>
+                                    <th>Duration</th>
+                                    <th>Accommodation</th>
+                                    <th>Prices</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2"><strong>Weekend Wellness Yoga Retreat<br>(Saturday – Sunday)</strong></td>
+                                    <td rowspan="2">2 Days & 1 Night</td>
+                                    <td>Garden Cottage</td>
+                                    <td>₹10,000 Per Person in Single Occupancy<br>₹8,000 Per Person in Double Occupancy</td>
+                                </tr>
+                                <tr>
+                                    <td>Premium Suite</td>
+                                    <td>₹12,000 Per Person in Single Occupancy<br>₹10,000 Per Person in Double Occupancy</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2"><strong>3-Day Wellness & Retreat<br>(Friday-Sunday)</strong></td>
+                                    <td rowspan="2">3 Days & 2 Night</td>
+                                    <td>Garden Cottage</td>
+                                    <td>₹16,000 Per Person in Single Occupancy<br>₹14,000 Per Person in Double Occupancy</td>
+                                </tr>
+                                <tr>
+                                    <td>Premium Suite</td>
+                                    <td>₹18,000 Per Person in Single Occupancy<br>₹16,000 Per Person in Double Occupancy</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2"><strong>1-Week Yoga & Wellness Detox Retreat<br>(Monday–Sunday)</strong></td>
+                                    <td rowspan="2">7 Days & 6 Night</td>
+                                    <td>Garden Cottage</td>
+                                    <td>₹35,000 Per Person in Single Occupancy<br>₹30,000 Per Person in Double Occupancy</td>
+                                </tr>
+                                <tr>
+                                    <td>Premium Suite</td>
+                                    <td>₹39,000 Per Person in Single Occupancy<br>₹34,000 Per Person in Double Occupancy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garden Cottage Accommodation -->
+            <div class="part-1" data-aos="fade-up" data-aos-delay="500">
                 <div class="row">
                     <div class="col-md-12 col-12 heading">
-                        <h3><i class="fa fa-bed" aria-hidden="true"></i>Dormitory Bed</h3>
+                        <h3><i class="fa fa-home" aria-hidden="true"></i> Garden Cottage</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12">
+                    <div class="col-lg-4 col-md-4 col-12">
                         <figure>
-                            <img src="images/Executive Cottage/IMG_4081 (1).JPG" alt="Dormitory" width="100%">
+                            <img src="images/Executive Cottage/IMG_4378 (1).JPG" alt="Garden Cottage" width="100%">
                         </figure>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-12 col1">
-                        <p>Shared accommodation in our comfortable dormitory with basic amenities. Perfect for
-                            budget-conscious travelers and those seeking community living experience.</p>
-                        <h6>Shared facilities with common bathroom <span>₹600 per night</span></h6>
+                    <div class="col-lg-8 col-md-8 col-12 col1">
+                        <p>Stay close to nature in our comfortable Garden Cottages surrounded by lush greenery and peaceful environment. Perfect for those seeking tranquility and connection with nature.</p>
+                        <ul>
+                            <li>Comfortable bedding with bed sheets and pillow covers</li>
+                            <li>Basic amenities provided</li>
+                            <li>Natural ventilation and peaceful surroundings</li>
+                            <li>Close proximity to yoga hall and dining area</li>
+                        </ul>
                         <div class="booking-section mt-3">
-                            <button class="btn btn-success btn-lg book-now-btn"
-                                onclick="bookAccommodation('Dormitory Bed', 600)">
-                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
+                            <button class="btn btn-success btn-lg book-now-btn" onclick="bookProgram('Garden Cottage')">
+                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Program
                             </button>
-                            <button class="btn btn-outline-primary ml-2" onclick="getQuote('Dormitory Bed', 600)">
+                            <button class="btn btn-outline-primary ml-2" onclick="getQuote('Garden Cottage')">
                                 <i class="fa fa-calculator" aria-hidden="true"></i> Get Quote
                             </button>
                         </div>
@@ -179,30 +231,33 @@
                 </div>
             </div>
 
-            <!-- Twin Sharing Common -->
-            <div class="part-2" data-aos="fade-up" data-aos-delay="400">
+            <!-- Premium Suite Accommodation -->
+            <div class="part-2" data-aos="fade-up" data-aos-delay="600">
                 <div class="row">
                     <div class="col-md-12 heading">
-                        <h3><i class="fa fa-users" aria-hidden="true"></i>Twin Sharing (Common Bathroom)</h3>
+                        <h3><i class="fa fa-star" aria-hidden="true"></i> Premium Suite</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12">
+                    <div class="col-lg-4 col-md-4 col-12">
                         <figure>
-                            <img src="images/Executive Cottage/IMG_4363 (1).JPG" alt="Twin Sharing" width="100%">
+                            <img src="images/Executive Cottage/IMG_4261 (1).JPG" alt="Premium Suite" width="100%">
                         </figure>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-12 col1">
-                        <p>Comfortable twin sharing room with two beds, suitable for friends or couples. Clean and
-                            peaceful environment with shared bathroom facilities.</p>
-                        <h6>Twin beds with common bathroom <span>₹1,200 per night</span></h6>
+                    <div class="col-lg-8 col-md-8 col-12 col1">
+                        <p>Experience luxury and comfort in our Premium Suites designed to blend modern amenities with nature's tranquility. Perfect for those seeking enhanced comfort during their spiritual journey.</p>
+                        <ul>
+                            <li>Air conditioning for climate control</li>
+                            <li>Private bathroom with modern fixtures</li>
+                            <li>Premium bedding and furnishing</li>
+                            <li>Enhanced privacy and comfort</li>
+                            <li>Modern amenities while maintaining spiritual ambiance</li>
+                        </ul>
                         <div class="booking-section mt-3">
-                            <button class="btn btn-success btn-lg book-now-btn"
-                                onclick="bookAccommodation('Twin Sharing (Common Bathroom)', 1200)">
-                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
+                            <button class="btn btn-success btn-lg book-now-btn" onclick="bookProgram('Premium Suite')">
+                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Program
                             </button>
-                            <button class="btn btn-outline-primary ml-2"
-                                onclick="getQuote('Twin Sharing (Common Bathroom)', 1200)">
+                            <button class="btn btn-outline-primary ml-2" onclick="getQuote('Premium Suite')">
                                 <i class="fa fa-calculator" aria-hidden="true"></i> Get Quote
                             </button>
                         </div>
@@ -210,115 +265,30 @@
                 </div>
             </div>
 
-            <!-- Single Room Common -->
-            <div class="part-2" data-aos="fade-up" data-aos-delay="400">
-                <div class="row">
-                    <div class="col-md-12 heading">
-                        <h3><i class="fa fa-user" aria-hidden="true"></i>Single Room (Common Bathroom)</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12">
-                        <figure>
-                            <img src="images/Executive Cottage/IMG_4074 (1).JPG" alt="Single Room" width="100%">
-                        </figure>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-12 col1">
-                        <p>Private single room for those seeking solitude and personal space during their retreat.
-                            Simple and clean accommodation with shared bathroom.</p>
-                        <h6>Private room with common bathroom <span>₹1,600 per night</span></h6>
-                        <div class="booking-section mt-3">
-                            <button class="btn btn-success btn-lg book-now-btn"
-                                onclick="bookAccommodation('Single Room (Common Bathroom)', 1600)">
-                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
-                            </button>
-                            <button class="btn btn-outline-primary ml-2"
-                                onclick="getQuote('Single Room (Common Bathroom)', 1600)">
-                                <i class="fa fa-calculator" aria-hidden="true"></i> Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Twin Sharing AC -->
-            <div class="part-2" data-aos="fade-up" data-aos-delay="400">
-                <div class="row">
-                    <div class="col-md-12 heading">
-                        <h3><i class="fa fa-snowflake-o" aria-hidden="true"></i>Twin Sharing with AC</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12">
-                        <figure>
-                            <img src="images/Executive Cottage/IMG_4488 (1).JPG" alt="AC Twin Room" width="100%">
-                        </figure>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-12 col1">
-                        <p>Air-conditioned twin sharing room with modern amenities for enhanced comfort during your
-                            stay. Perfect for those preferring climate-controlled environment.</p>
-                        <h6>AC twin room with modern facilities <span>₹1,800 per night</span></h6>
-                        <div class="booking-section mt-3">
-                            <button class="btn btn-success btn-lg book-now-btn"
-                                onclick="bookAccommodation('Twin Sharing with AC', 1800)">
-                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
-                            </button>
-                            <button class="btn btn-outline-primary ml-2"
-                                onclick="getQuote('Twin Sharing with AC', 1800)">
-                                <i class="fa fa-calculator" aria-hidden="true"></i> Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Room AC -->
-            <div class="part-2" data-aos="fade-up" data-aos-delay="400">
-                <div class="row">
-                    <div class="col-md-12 heading">
-                        <h3><i class="fa fa-star" aria-hidden="true"></i>Single Room with AC</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12">
-                        <figure>
-                            <img src="images/Executive Cottage/IMG_4261 (1).JPG" alt="AC Single Room" width="100%">
-                        </figure>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-12 col1">
-                        <p>Premium single room with air conditioning and private bathroom. Our most comfortable
-                            accommodation option for those seeking luxury during their spiritual journey.</p>
-                        <h6>Premium AC room with private bathroom <span>₹2,500 per night</span></h6>
-                        <div class="booking-section mt-3">
-                            <button class="btn btn-success btn-lg book-now-btn"
-                                onclick="bookAccommodation('Single Room with AC', 2500)">
-                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
-                            </button>
-                            <button class="btn btn-outline-primary ml-2"
-                                onclick="getQuote('Single Room with AC', 2500)">
-                                <i class="fa fa-calculator" aria-hidden="true"></i> Get Quote
-                            </button>
-                        </div>
+            <!-- Accommodation Details -->
+            <div class="row" data-aos="fade-up" data-aos-delay="700">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        <h4><i class="fa fa-info-circle"></i> Accommodation</h4>
+                        <p><strong>For all accommodation, bed sheets, pillow with cover and basic amenities are provided.</strong></p>
+                        <p><strong>Advance booking is necessary for all accommodations in order to facilitate pre-check in which will speed up your check in on arrival at the Natureland Resort.</strong></p>
                     </div>
                 </div>
             </div>
 
             <!-- Important Notes -->
-            <div class="row" data-aos="fade-up" data-aos-delay="500">
+            <div class="row" data-aos="fade-up" data-aos-delay="800">
                 <div class="col-md-12">
                     <div class="alert alert-warning">
-                        <h4>📌 Important Notes</h4>
+                        <h4>📌 Important Booking Information</h4>
                         <ul>
-                            <li>Minimum stay: 3 nights</li>
-                            <li>Prices are per person, per night</li>
+                            <li>Prices are per person according to the Program and the Package</li>
+                            <li>Single occupancy rates apply; double occupancy prices will be slightly lower</li>
+                            <li>All rates include Sattvic meals, yoga and meditation classes, Naturopathic Therapy and participation in all our activities</li>
                             <li>Advance booking is required to confirm your spot</li>
-                            <li>Special festival/holiday rates may apply during select dates (e.g., Christmas, New Year,
-                                Diwali retreats)</li>
-                            <li>All rates include meals, yoga classes, meditation, satsang, and participation in Ashram
-                                activities</li>
+                            <li>Programs run on specific schedules - please check availability</li>
                         </ul>
-                        <p><strong>For bookings:</strong> Call/WhatsApp +91-6203517866 or email
-                            naturelandyogchetna@gmail.com</p>
+                        <p><strong>For bookings:</strong> Call/WhatsApp +91-6203517866 or email naturelandyogchetna@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -393,13 +363,27 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="roomType">Room Type</label>
+                                    <label for="roomType">Accommodation Type</label>
                                     <input type="text" class="form-control" id="roomType" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="pricePerNight">Price per Night</label>
+                                    <label for="programType">Program Type</label>
+                                    <select class="form-control" id="programType" required>
+                                        <option value="">Select Program</option>
+                                        <option value="Weekend Wellness Yoga Retreat (Saturday – Sunday)">Weekend Wellness Yoga Retreat (2 Days & 1 Night)</option>
+                                        <option value="3-Day Wellness & Retreat (Friday-Sunday)">3-Day Wellness & Retreat (3 Days & 2 Night)</option>
+                                        <option value="1-Week Yoga & Wellness Detox Retreat (Monday–Sunday)">1-Week Yoga & Wellness Detox Retreat (7 Days & 6 Night)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="pricePerNight">Pricing Information</label>
                                     <input type="text" class="form-control" id="pricePerNight" readonly>
                                 </div>
                             </div>
@@ -484,10 +468,10 @@
     <script>
         let currentBooking = {};
 
-        function bookAccommodation(roomType, price) {
-            currentBooking = { roomType, price };
-            document.getElementById('roomType').value = roomType;
-            document.getElementById('pricePerNight').value = '₹' + price + ' per night';
+        function bookProgram(accommodationType) {
+            currentBooking = { accommodationType };
+            document.getElementById('roomType').value = accommodationType;
+            document.getElementById('pricePerNight').value = 'Program-based pricing (see table above)';
 
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
@@ -497,8 +481,8 @@
             $('#bookingModal').modal('show');
         }
 
-        function getQuote(roomType, price) {
-            const message = `Hi! I would like to get a quote for ${roomType} (₹${price} per night) at Natureland–YogChetna. Please provide me with more details about availability and total cost.`;
+        function getQuote(accommodationType) {
+            const message = `Hi! I would like to get a quote for ${accommodationType} accommodation at Natureland–YogChetna. Please provide me with details about available programs, pricing, and availability. I'm interested in your wellness retreat programs.`;
             const whatsappUrl = `https://wa.me/916203517866?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
@@ -554,14 +538,17 @@
                 specialRequests: document.getElementById('specialRequests').value
             };
 
+            const programType = document.getElementById('programType').value;
+            
             const message = `🏨 *BOOKING REQUEST - Natureland–YogChetna*
 
 📋 *Booking Details:*
-• Room Type: ${formData.roomType}
+• Accommodation Type: ${formData.roomType}
+• Program: ${programType}
 • Check-in: ${formData.checkIn}
 • Check-out: ${formData.checkOut}
 • Guests: ${formData.guests}
-• Total Amount: ${formData.totalAmount}
+• Occupancy: ${formData.guests === '1' ? 'Single' : 'Double'}
 
 👤 *Guest Information:*
 • Name: ${formData.fullName}
@@ -571,7 +558,7 @@
 📝 *Special Requests:*
 ${formData.specialRequests || 'None'}
 
-Please confirm availability and booking details. Thank you!`;
+Please confirm availability and provide pricing details for the selected program. Thank you!`;
 
             const whatsappUrl = `https://wa.me/916203517866?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
