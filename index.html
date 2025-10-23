@@ -114,6 +114,28 @@
                 margin-top: 10px;
             }
         }
+        
+        /* Book Retreat Button Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            }
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6) !important;
+            background: linear-gradient(45deg, #218838, #1ea080) !important;
+        }
     </style>
 
 </head>
@@ -125,10 +147,10 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a class="active" href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="services.html">Services</a>
+            <a href="services.html">Yogic Activities</a>
             <a href="rates.html">Accommodation & Rates</a>
-            <a href="courses.html">Courses</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="courses.html">Retreat Program</a>
+            <a href="gallery.html">Facility and Therapies</a>
             <a href="contact.html">Contact</a>
             <a href="admin.html" style="color: #d26e0b;">Admin</a>
         </div>
@@ -187,8 +209,8 @@
                             aria-hidden="true"></i><span>naturelandyogchetna@gmail.com</span></p>
                     <a data-aos="fade-left" data-aos-delay="500" class="btn btn-success" href="about.html"
                         role="button">About Us</a>
-                    <a data-aos="fade-left" data-aos-delay="600" class="btn btn-outline-light ml-3" href="courses.html"
-                        role="button">Book Retreat</a>
+                    <a data-aos="fade-left" data-aos-delay="600" class="btn btn-success ml-3" href="courses.html"
+                        role="button" style="background: linear-gradient(45deg, #28a745, #20c997); border: none; padding: 12px 25px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); animation: pulse 2s infinite;">📞 Book Retreat Now</a>
                 </div>
             </div>
             <!--Row Ended-->
@@ -369,7 +391,7 @@
                             <p>All rates include Sattvic meals, yoga and meditation classes, Naturapathic Therapy and participation in all our activities.</p>
                             <a href="gallery.html" class="btn btn-primary btn-lg active" role="button"
                                 aria-pressed="true">View Gallery</a>
-                            <a href="courses.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Book Retreat</a>
+                            <a href="courses.html" class="btn btn-success btn-lg active" role="button" aria-pressed="true" style="background: linear-gradient(45deg, #28a745, #20c997); border: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); animation: pulse 2s infinite;">🌿 Book Retreat</a>
                         </div>
                     </div>
 
@@ -772,11 +794,11 @@
                                         class="sr-only">(current)</span></a>
                             </li>
                             <li><a class="hidden-xs">~</a></li>
-                            <li class="nav-item"><a class="nav-link" href="services.html">Our Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="services.html">Yogic Activities</a></li>
                             <li><a class="hidden-xs">~</a></li>
                             <li class="nav-item"><a class="nav-link" href="rates.html">Rates</a></li>
                             <li><a class="hidden-xs">~</a></li>
-                            <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                            <li class="nav-item"><a class="nav-link" href="courses.html">Retreat Program</a></li>
                             <li><a class="hidden-xs">~</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
