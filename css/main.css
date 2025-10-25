@@ -196,7 +196,7 @@ header .social-icons a {
 }
 
 header .social-icons i {
-    font-size: 18px;
+    font-size: 30px;
     color: white;
     margin-left: 8px;
 }
@@ -478,7 +478,7 @@ header .border-img {
 }
 
 .banner-home p {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -605,7 +605,7 @@ header .border-img {
 }
 
 .about .circle__content h4 {
-    font-size: 34px;
+    font-size: 24px;
     padding-bottom: 15px;
 }
 
@@ -1863,12 +1863,12 @@ header .border-img {
     }
 
     .banner-home h1 {
-        font-size: 52px;
+        font-size: 45px;
         padding-bottom: 5px;
     }
 
     .banner-home h2 {
-        font-size: 30px;
+        font-size: 26px;
         margin-bottom: 30px;
     }
 
@@ -1983,7 +1983,7 @@ header .border-img {
     }
 
     header .social-icons i {
-        font-size: 16px;
+        font-size: 30px;
     }
 
     .banner-home {
@@ -3271,4 +3271,17 @@ header .border-img {
     .about {
         padding-bottom: 30px;
     }
+}
+
+
+header .social-icons .fa-youtube:hover{
+    color: #ff0000;
+}
+
+header .social-icons .fa-whatsapp:hover{
+    color: #25D366;
+}
+
+header .social-icons .fa-facebook-official:hover{
+    color: #1877F2;
 }
