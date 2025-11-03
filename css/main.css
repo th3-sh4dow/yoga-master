@@ -561,9 +561,9 @@ header .border-img {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    background: -moz-linear-gradient(left, rgba(60, 40, 159, 0.7) 0%, rgba(11, 94, 237, 0.7) 100%);
-    background: -webkit-linear-gradient(left, rgba(60, 40, 159, 0.7) 0%, rgba(11, 94, 237, 0.7) 100%);
-    background: linear-gradient(to right, rgba(60, 40, 159, 0.7) 0%, rgba(11, 94, 237, 0.7) 100%);
+    background: -moz-linear-gradient(left, rgba(40, 159, 46, 0.7) 0%, rgba(75, 237, 11, 0.7) 100%);
+    background: -webkit-linear-gradient(left, rgba(60, 159, 40, 0.7) 0%, rgba(11, 101, 237, 0.7) 100%);
+    background: linear-gradient(to right, rgba(40, 159, 40, 0.7) 0%, rgba(11, 203, 237, 0.7) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b33c289f', endColorstr='#b30b5eed', GradientType=1);
 }
 
@@ -576,7 +576,25 @@ header .border-img {
     border-radius: 50%;
     background-color: #ddd;
     content: "";
-    background-image: url("../images/about-1.jpg");
+
+}
+
+.circle_1:after {
+    background-image: url("../images/new/IMG_4431.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.circle_2:after {
+    background-image: url("../images/new/IMG_4363\ \(1\).JPG");
+    background-size: cover;
+    background-position: center;
+}
+
+.circle_3:after {
+    background-image: url("../images/new/IMG_4339\ \(1\).JPG");
+    background-size: cover;
+    background-position: center;
 }
 
 .circle__inner {
@@ -1050,7 +1068,7 @@ header .border-img {
     background-size: cover;
     background-image: url("../images/contact-bg.jpg");
     font-family: 'Old Standard TT', serif;
-    
+
 }
 
 .contact .gradient {
@@ -3274,14 +3292,14 @@ header .border-img {
 }
 
 
-header .social-icons .fa-youtube:hover{
+header .social-icons .fa-youtube:hover {
     color: #ff0000;
 }
 
-header .social-icons .fa-whatsapp:hover{
+header .social-icons .fa-whatsapp:hover {
     color: #25D366;
 }
 
-header .social-icons .fa-facebook-official:hover{
+header .social-icons .fa-facebook-official:hover {
     color: #1877F2;
 }
