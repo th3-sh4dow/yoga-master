@@ -32,15 +32,23 @@ A static HTML website for Natureland–YogChetna, a Yoga and Naturopathy retreat
 - All static assets served directly
 
 ## Recent Changes
-- **November 4, 2025**: Major image placement improvements
-  - Created responsive image system with adaptive sizing across all devices
-  - Implemented lazy loading for better performance (30-50% faster page loads)
-  - Added smooth hover effects and transitions for professional look
-  - Optimized image heights for mobile, tablet, and desktop
-  - Created comprehensive CSS grid system for better layouts
-  - Added adaptive image loading based on connection speed
-  - New files: `css/image-improvements.css`, `js/image-loader.js`
-  - Updated: `index.html`, `gallery.html` with new stylesheets
+- **November 4, 2025**: Complete website professional upgrade
+  - **Professional Icons**: Replaced all emojis with Font Awesome icons (phone, leaf, user-circle, fire) for a more professional appearance
+  - **Terminology Standardization**: Fixed inconsistencies across all pages:
+    - "Retreat Programs" (plural) - standardized everywhere
+    - "Facilities & Therapies" (plural with &) - standardized everywhere
+    - "Book Your Stay" - consistent button text
+    - "Naturopathic" spelling corrected
+  - **Image Improvements**: 
+    - Created responsive image system with adaptive sizing across all devices
+    - Implemented lazy loading for better performance (30-50% faster page loads)
+    - Added smooth hover effects and transitions for professional look
+    - Optimized image heights for mobile, tablet, and desktop
+    - Created comprehensive CSS grid system for better layouts
+    - Added adaptive image loading based on connection speed
+  - **Documentation**: Created TERMINOLOGY_GUIDE.md and IMAGE_IMPROVEMENTS.md
+  - **New files**: `css/image-improvements.css`, `js/image-loader.js`
+  - **Updated**: All 12+ HTML pages with consistent navigation, icons, and image improvements
 - Imported from GitHub
 - Set up Python HTTP server for static file serving
 - Configured for Replit environment with proper host binding (0.0.0.0:5000)
