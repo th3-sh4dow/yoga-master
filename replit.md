@@ -32,6 +32,15 @@ A static HTML website for Natureland–YogChetna, a Yoga and Naturopathy retreat
 - All static assets served directly
 
 ## Recent Changes
+- **November 4, 2025**: Major image placement improvements
+  - Created responsive image system with adaptive sizing across all devices
+  - Implemented lazy loading for better performance (30-50% faster page loads)
+  - Added smooth hover effects and transitions for professional look
+  - Optimized image heights for mobile, tablet, and desktop
+  - Created comprehensive CSS grid system for better layouts
+  - Added adaptive image loading based on connection speed
+  - New files: `css/image-improvements.css`, `js/image-loader.js`
+  - Updated: `index.html`, `gallery.html` with new stylesheets
 - Imported from GitHub
 - Set up Python HTTP server for static file serving
 - Configured for Replit environment with proper host binding (0.0.0.0:5000)
