@@ -19,22 +19,48 @@ $(document).on('click', function (e) {
     }
 });
 /* ============================================================
-   Onscroll
+   Onscroll - Enhanced for all devices (Desktop + Mobile)
  * ============================================================*/
-window.onscroll = function () {
-    myFunction()
-};
 
+// Initialize variables
 var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
+var header = document.querySelector("header");
+var stickyOffset = 100; // Fixed offset for better desktop compatibility
 
-function myFunction() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
+// Main scroll function
+function handleStickyNav() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    // Use a fixed offset instead of navbar.offsetTop for better desktop compatibility
+    if (scrollTop > stickyOffset) {
+        if (navbar) navbar.classList.add("sticky");
+        if (header) header.classList.add("sticky");
     } else {
-        navbar.classList.remove("sticky");
+        if (navbar) navbar.classList.remove("sticky");
+        if (header) header.classList.remove("sticky");
     }
 }
+
+// Primary scroll listener
+window.addEventListener('scroll', handleStickyNav);
+
+// jQuery backup for better compatibility
+$(document).ready(function() {
+    $(window).scroll(function() {
+        var scrollTop = $(this).scrollTop();
+        
+        if (scrollTop > stickyOffset) {
+            $("#navbar").addClass("sticky");
+            $("header").addClass("sticky");
+        } else {
+            $("#navbar").removeClass("sticky");
+            $("header").removeClass("sticky");
+        }
+    });
+});
+
+// Legacy support
+window.onscroll = handleStickyNav;
 
 $(function () {
     $(".scroll").click(function () {

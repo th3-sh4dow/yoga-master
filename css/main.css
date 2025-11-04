@@ -209,11 +209,13 @@ header .social-icons i {
 
 .sticky {
     z-index: 99;
-    position: fixed;
+    position: fixed !important;
     font-weight: 600;
     top: 0;
     width: 100%;
-    background: rgba(73, 160, 3, 0.94);
+    background: rgba(73, 160, 3, 0.94) !important;
+    transition: all 0.3s ease;
+    padding: 10px 0;
 }
 
 .sticky img {
@@ -236,6 +238,42 @@ header .social-icons i:hover {
 .sticky p {
     font-size: 12px;
     letter-spacing: 3px;
+}
+
+/* Desktop specific sticky navigation */
+@media (min-width: 769px) {
+    .sticky {
+        background: rgba(73, 160, 3, 0.95) !important;
+        padding: 15px 0 !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+    }
+    
+    .sticky img {
+        width: auto;
+        max-width: 100px;
+        padding: 8px 0;
+    }
+    
+    .sticky p {
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: white !important;
+    }
+    
+    .sticky .social-icons i {
+        color: white !important;
+    }
+}
+
+/* Force sticky behavior on all devices */
+.sticky {
+    display: block !important;
+    visibility: visible !important;
 }
 
 .affix {
@@ -3351,4 +3389,63 @@ header .social-icons .fa-whatsapp:hover {
 
 header .social-icons .fa-facebook-official:hover {
     color: #1877F2;
+}
+
+/* Additional sticky navigation fixes for cross-browser compatibility */
+.sticky {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Ensure header positioning works correctly */
+header {
+    transition: all 0.3s ease;
+}
+
+header.sticky {
+    background: rgba(73, 160, 3, 0.95) !important;
+}
+
+/* Fix for potential z-index issues */
+.sticky {
+    z-index: 9999 !important;
+}
+
+/* Smooth transition for all sticky elements */
+.sticky * {
+    transition: all 0.3s ease;
+}
+/*
+ Additional desktop sticky fixes */
+@media (min-width: 1024px) {
+    /* Ensure header becomes sticky on desktop */
+    header.sticky,
+    nav.sticky,
+    #navbar.sticky {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: rgba(73, 160, 3, 0.95) !important;
+        z-index: 9999 !important;
+        padding: 10px 0 !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Desktop text styling */
+    header.sticky p,
+    nav.sticky p,
+    #navbar.sticky p {
+        color: white !important;
+        font-size: 14px !important;
+    }
+    
+    /* Desktop social icons */
+    header.sticky .social-icons i,
+    nav.sticky .social-icons i,
+    #navbar.sticky .social-icons i {
+        color: white !important;
+    }
 }
