@@ -27,6 +27,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body,
 html {
     height: 100%;
@@ -79,6 +83,8 @@ hr {
 
 .container-fluid {
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /*-- scroll to top ---*/
@@ -710,7 +716,8 @@ header .border-img {
 .section-4 p {
     font-size: 20px;
     padding-bottom: 20px;
-    padding-right: 660px;
+    padding-right: 50px;
+    max-width: 100%;
 }
 
 .section-4 .btn-primary,
@@ -797,7 +804,8 @@ header .border-img {
 .services p {
     font-size: 20px;
     padding-bottom: 20px;
-    padding-right: 660px;
+    padding-right: 50px;
+    max-width: 100%;
 }
 
 .services a {
@@ -1877,7 +1885,7 @@ header .border-img {
     }
 
     .section-4 p {
-        padding-right: 100px;
+        padding-right: 20px;
     }
 
     .banner-home h1 {
@@ -1910,13 +1918,15 @@ header .border-img {
     }
 
     .services p {
-        padding-right: 220px;
+        padding-right: 20px;
     }
 }
 
 @media(max-width:1024px) {
     .container {
         max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .sidenav a {
@@ -2479,7 +2489,7 @@ header .border-img {
     }
 
     .blog h4 {
-        padding-right: 100px;
+        padding-right: 20px;
     }
 
     .blog .heading img {
@@ -2589,7 +2599,7 @@ header .border-img {
     }
 
     .blog-page h4 {
-        padding-right: 100px;
+        padding-right: 20px;
     }
 
     .blog-page .heading img {
@@ -2648,7 +2658,7 @@ header .border-img {
     }
 
     .blog-page-another h4 {
-        padding-right: 100px;
+        padding-right: 20px;
     }
 
     .blog-page-another .heading img {
@@ -3288,6 +3298,53 @@ header .border-img {
 
     .about {
         padding-bottom: 30px;
+    }
+    
+    /* Additional overflow fixes for very small screens */
+    .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .section-4 .right-part {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .services .right-part {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Global overflow prevention */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent horizontal scroll on all screen sizes */
+@media (max-width: 768px) {
+    .section-4 p,
+    .services p {
+        padding-right: 0 !important;
+    }
+    
+    .blog .inner-content,
+    .blog-page .inner-content,
+    .blog-page-another .inner-content {
+        padding-right: 0 !important;
+    }
+    
+    .section-4 .right-part,
+    .services .right-part {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
