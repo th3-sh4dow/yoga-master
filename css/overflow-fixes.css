@@ -1,19 +1,8 @@
 /* Overflow Prevention CSS */
 
-/* Global overflow prevention */
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
+/* Global overflow prevention - only for mobile */
 * {
     box-sizing: border-box;
-}
-
-/* Container fixes */
-.container, .container-fluid {
-    max-width: 100%;
-    overflow-x: hidden;
 }
 
 /* Image responsiveness */
@@ -22,9 +11,36 @@ img {
     height: auto;
 }
 
-/* Section specific fixes */
-.section-4, .services, .blog, .blog-page, .blog-page-another {
-    overflow-x: hidden;
+/* Desktop - Normal behavior */
+@media (min-width: 1025px) {
+    html, body {
+        overflow-x: auto;
+    }
+    
+    .container, .container-fluid {
+        max-width: none;
+        overflow-x: visible;
+    }
+    
+    .section-4, .services, .blog, .blog-page, .blog-page-another {
+        overflow-x: visible;
+    }
+}
+
+/* Tablet - Controlled overflow */
+@media (min-width: 769px) and (max-width: 1024px) {
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    .container, .container-fluid {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .section-4, .services, .blog, .blog-page, .blog-page-another {
+        overflow-x: hidden;
+    }
 }
 
 /* Mobile specific fixes */

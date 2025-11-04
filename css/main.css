@@ -27,10 +27,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-html {
-    overflow-x: hidden;
-}
-
 body,
 html {
     height: 100%;
@@ -83,8 +79,6 @@ hr {
 
 .container-fluid {
     padding: 0;
-    max-width: 100%;
-    overflow-x: hidden;
 }
 
 /*-- scroll to top ---*/
@@ -716,8 +710,7 @@ header .border-img {
 .section-4 p {
     font-size: 20px;
     padding-bottom: 20px;
-    padding-right: 50px;
-    max-width: 100%;
+    padding-right: 660px;
 }
 
 .section-4 .btn-primary,
@@ -804,8 +797,7 @@ header .border-img {
 .services p {
     font-size: 20px;
     padding-bottom: 20px;
-    padding-right: 50px;
-    max-width: 100%;
+    padding-right: 660px;
 }
 
 .services a {
@@ -1885,7 +1877,7 @@ header .border-img {
     }
 
     .section-4 p {
-        padding-right: 20px;
+        padding-right: 100px;
     }
 
     .banner-home h1 {
