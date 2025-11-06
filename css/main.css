@@ -3543,8 +3543,9 @@ dditional Mobile Menu Fixes */
 /* Ensure no other element can override sidenav */
 body .sidenav {
     z-index: 999999 !important;
-}/
-* Fix sidenav height and scrolling issues */
+}
+
+/* Fix sidenav height and scrolling issues */
 .sidenav {
     height: 100vh !important;
     height: 100dvh !important; /* For mobile browsers */
@@ -3588,8 +3589,9 @@ body.sidenav-open {
         position: relative;
         overflow: hidden;
     }
-}/
-* Custom Scrollbar Styles - Thin or Hidden */
+}
+
+/* Custom Scrollbar Styles - Thin or Hidden */
 
 /* For Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
@@ -3705,8 +3707,9 @@ html {
         max-width: 100vw;
         overflow-x: hidden;
     }
-}/
-* Prevent double scrollbars and overflow issues */
+}
+
+/* Prevent double scrollbars and overflow issues */
 html, body {
     overflow-x: hidden !important;
     max-width: 100vw !important;
