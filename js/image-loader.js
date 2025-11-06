@@ -80,7 +80,7 @@
     function handleImageErrors() {
         document.addEventListener('error', function(e) {
             if (e.target.tagName === 'IMG') {
-                console.warn('Image failed to load:', e.target.src);
+                // console.warn('Image failed to load:', e.target.src);
                 // Optionally add a placeholder or retry logic
                 e.target.classList.add('image-error');
             }
@@ -113,7 +113,7 @@
                 if (slowConnections.includes(connection.effectiveType)) {
                     // Add class to body for CSS to target
                     document.body.classList.add('slow-connection');
-                    console.info('Slow connection detected, optimizing image loading');
+                    // console.info('Slow connection detected, optimizing image loading');
                 }
             }
         }
