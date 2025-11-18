@@ -320,14 +320,42 @@ class BookingModal {
         const container = this.modal.querySelector('#accommodationOptions');
         const accommodationSection = this.modal.querySelector('#accommodationSection');
         const dateSection = this.modal.querySelector('#dateSection');
+        const checkInDate = this.modal.querySelector('#checkInDate');
+        const checkOutDate = this.modal.querySelector('#checkOutDate');
         
         // Show/hide sections based on program type
         if (this.currentProgram === 'online') {
             accommodationSection.style.display = 'block'; // Show accommodation section for online
             dateSection.style.display = 'none'; // Hide date section for online
+            
+            // Completely disable and clear date fields for online yoga
+            if (checkInDate) {
+                checkInDate.removeAttribute('required');
+                checkInDate.disabled = true;
+                checkInDate.value = '';
+                checkInDate.style.display = 'none';
+            }
+            if (checkOutDate) {
+                checkOutDate.removeAttribute('required');
+                checkOutDate.disabled = true;
+                checkOutDate.value = '';
+                checkOutDate.style.display = 'none';
+            }
         } else {
             accommodationSection.style.display = 'block';
             dateSection.style.display = 'block';
+            
+            // Re-enable and show date fields for retreat programs
+            if (checkInDate) {
+                checkInDate.setAttribute('required', 'required');
+                checkInDate.disabled = false;
+                checkInDate.style.display = 'block';
+            }
+            if (checkOutDate) {
+                checkOutDate.setAttribute('required', 'required');
+                checkOutDate.disabled = false;
+                checkOutDate.style.display = 'block';
+            }
         }
 
         container.innerHTML = `
@@ -404,7 +432,7 @@ class BookingModal {
         const accommodationLabel = this.modal.querySelector('#accommodationSection label');
         const accommodationHelper = this.modal.querySelector('#accommodationSection .form-text');
         
-        if (programKey === 'online') {
+        if (programKey === 'online' || programKey === 'Online Yoga at Home') {
             accommodationLabel.textContent = 'Select Membership Plan *';
             accommodationHelper.textContent = 'Choose your preferred online yoga membership plan';
         } else {
@@ -415,8 +443,10 @@ class BookingModal {
         this.populateAccommodationOptions();
         this.updatePriceSummary();
         
-        // Auto-calculate check-out date if check-in is already selected
-        this.calculateCheckOutDate();
+        // Auto-calculate check-out date if check-in is already selected (only for non-online programs)
+        if (programKey !== 'online' && programKey !== 'Online Yoga at Home') {
+            this.calculateCheckOutDate();
+        }
     }
 
     updatePriceSummary() {
@@ -460,20 +490,25 @@ class BookingModal {
         const checkOutInput = this.modal.querySelector('#checkOutDate');
         const selectedProgram = this.modal.querySelector('input[name="program"]:checked');
         
-        if (!checkInInput.value || !selectedProgram) return;
+        if (!selectedProgram) return;
         
-        const checkInDate = new Date(checkInInput.value);
         const program = this.programs[selectedProgram.value];
         
-        // Get duration from program data
-        let durationDays = program.durationDays || 1;
-        
-        if (selectedProgram.value === 'online') {
-            // For online classes, no check-out date needed
+        if (selectedProgram.value === 'online' || selectedProgram.value === 'Online Yoga at Home') {
+            // For online classes, completely disable date fields
             checkOutInput.value = '';
             checkOutInput.style.display = 'none';
             checkOutInput.parentElement.style.display = 'none';
             checkOutInput.classList.remove('auto-calculated');
+            checkOutInput.removeAttribute('required');
+            checkOutInput.disabled = true;
+            
+            // Also disable check-in date for online classes
+            checkInInput.value = '';
+            checkInInput.style.display = 'none';
+            checkInInput.parentElement.style.display = 'none';
+            checkInInput.removeAttribute('required');
+            checkInInput.disabled = true;
             
             // Reset helper text
             const helper = this.modal.querySelector('#checkOutHelper');
@@ -484,6 +519,13 @@ class BookingModal {
             }
             return;
         }
+        
+        if (!checkInInput.value) return;
+        
+        const checkInDate = new Date(checkInInput.value);
+        
+        // Get duration from program data
+        let durationDays = program.durationDays || 1;
         
         // Calculate check-out date
         const checkOutDate = new Date(checkInDate);
@@ -496,6 +538,7 @@ class BookingModal {
         // Show check-out date field for non-online programs
         checkOutInput.style.display = 'block';
         checkOutInput.parentElement.style.display = 'block';
+        checkOutInput.setAttribute('required', 'required');
         
         // Add visual styling to indicate auto-calculation
         checkOutInput.classList.remove('manually-changed');
@@ -531,13 +574,7 @@ class BookingModal {
         // Clear previous error states
         this.clearValidationErrors();
 
-        // Check basic HTML5 validation first
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return false;
-        }
-
-        // Check required radio button selections
+        // Check required radio button selections first
         const selectedProgram = this.modal.querySelector('input[name="program"]:checked');
         const selectedAccommodation = this.modal.querySelector('input[name="accommodation"]:checked');
 
@@ -547,33 +584,88 @@ class BookingModal {
         }
 
         if (!selectedAccommodation) {
-            this.addValidationError('#accommodationOptions', 'Please select an accommodation type (occupancy)');
+            this.addValidationError('#accommodationOptions', 'Please select a membership plan');
             return false;
         }
 
-        // For non-online programs, check dates
-        if (selectedProgram.value !== 'online') {
-            const checkIn = this.modal.querySelector('#checkInDate').value;
-            const checkOut = this.modal.querySelector('#checkOutDate').value;
-
-            if (!checkIn) {
-                this.addValidationError('#checkInDate', 'Please select a check-in date');
+        // For online programs, completely disable date validation
+        if (selectedProgram.value === 'online' || selectedProgram.value === 'Online Yoga at Home') {
+            const checkInDate = this.modal.querySelector('#checkInDate');
+            const checkOutDate = this.modal.querySelector('#checkOutDate');
+            
+            // Completely disable date fields for online programs
+            if (checkInDate) {
+                checkInDate.removeAttribute('required');
+                checkInDate.disabled = true;
+                checkInDate.value = '';
+            }
+            if (checkOutDate) {
+                checkOutDate.removeAttribute('required');
+                checkOutDate.disabled = true;
+                checkOutDate.value = '';
+            }
+            
+            // Validate only non-date fields manually
+            const requiredFields = form.querySelectorAll('input[required]:not([type="date"]), select[required], textarea[required]');
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    field.focus();
+                    this.showError(`Please fill in the ${field.labels?.[0]?.textContent || field.name || 'required field'}`);
+                    return false;
+                }
+            }
+            
+            // Check email format
+            const email = form.querySelector('#guestEmail');
+            if (email && email.value && !email.checkValidity()) {
+                email.focus();
+                this.showError('Please enter a valid email address');
                 return false;
             }
+            
+            return true;
+        }
 
-            if (!checkOut) {
-                this.addValidationError('#checkOutDate', 'Please select a check-out date');
-                return false;
-            }
+        // For retreat programs, re-enable date fields and validate normally
+        const checkInDate = this.modal.querySelector('#checkInDate');
+        const checkOutDate = this.modal.querySelector('#checkOutDate');
+        
+        if (checkInDate) {
+            checkInDate.disabled = false;
+            checkInDate.setAttribute('required', 'required');
+        }
+        if (checkOutDate) {
+            checkOutDate.disabled = false;
+            checkOutDate.setAttribute('required', 'required');
+        }
 
-            // Validate date logic
-            const checkInDate = new Date(checkIn);
-            const checkOutDate = new Date(checkOut);
+        // Check HTML5 validation for retreat programs
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return false;
+        }
 
-            if (checkOutDate <= checkInDate) {
-                this.addValidationError('#checkOutDate', 'Check-out date must be after check-in date');
-                return false;
-            }
+        // Additional date validation for retreat programs
+        const checkIn = checkInDate?.value;
+        const checkOut = checkOutDate?.value;
+
+        if (!checkIn) {
+            this.addValidationError('#checkInDate', 'Please select a check-in date');
+            return false;
+        }
+
+        if (!checkOut) {
+            this.addValidationError('#checkOutDate', 'Please select a check-out date');
+            return false;
+        }
+
+        // Validate date logic
+        const checkInDateObj = new Date(checkIn);
+        const checkOutDateObj = new Date(checkOut);
+
+        if (checkOutDateObj <= checkInDateObj) {
+            this.addValidationError('#checkOutDate', 'Check-out date must be after check-in date');
+            return false;
         }
 
         return true;

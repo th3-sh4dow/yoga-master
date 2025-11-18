@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Online Yoga Validation Fix</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/booking-modal.css">
+    <style>
+        .test-result {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>🧘‍♀️ Online Yoga Validation Fix Test</h2>
+        <p class="lead">This page tests the fix for the date validation issue in online yoga bookings.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Test Online Yoga Booking</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-success btn-lg btn-block" onclick="testOnlineYogaBooking()">
+                            🧘‍♀️ Open Online Yoga Booking
+                        </button>
+                        <div id="testResult" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Validation Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="validationStatus">
+                            <p class="info test-result">Click the test button to check validation...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Instructions</h5>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li><strong>Click "Open Online Yoga Booking"</strong> - This should open the booking modal</li>
+                            <li><strong>Select "Online Yoga at Home"</strong> - The program should be pre-selected</li>
+                            <li><strong>Fill in your details:</strong>
+                                <ul>
+                                    <li>Name: Your full name</li>
+                                    <li>Email: Valid email address</li>
+                                    <li>Phone: 10-digit phone number</li>
+                                </ul>
+                            </li>
+                            <li><strong>Select a membership plan</strong> (Weekly, Monthly, Quarterly, or Flexible)</li>
+                            <li><strong>Click "Pay Now"</strong> - This should now work without date validation errors</li>
+                        </ol>
+                        
+                        <div class="alert alert-info mt-3">
+                            <strong>Expected Result:</strong> The form should submit successfully without any "invalid form control" errors related to check-in/check-out dates.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Console Monitor</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="consoleOutput" style="background: #000; color: #0f0; padding: 15px; border-radius: 5px; font-family: monospace; max-height: 200px; overflow-y: auto;">
+                            Console logs will appear here...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/booking-modal.js"></script>
+
+    <script>
+        // Console monitoring
+        const logs = [];
+        const originalLog = console.log;
+        const originalError = console.error;
+
+        console.log = function(...args) {
+            logs.push({type: 'log', message: args.join(' '), time: new Date().toLocaleTimeString()});
+            updateConsole();
+            originalLog.apply(console, args);
+        };
+
+        console.error = function(...args) {
+            logs.push({type: 'error', message: args.join(' '), time: new Date().toLocaleTimeString()});
+            updateConsole();
+            originalError.apply(console, args);
+        };
+
+        function updateConsole() {
+            const container = document.getElementById('consoleOutput');
+            container.innerHTML = logs.slice(-10).map(log => 
+                `<div style="color: ${log.type === 'error' ? '#f00' : '#0f0'}">
+                    [${log.time}] ${log.message}
+                </div>`
+            ).join('');
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function testOnlineYogaBooking() {
+            const result = document.getElementById('testResult');
+            const status = document.getElementById('validationStatus');
+            
+            result.innerHTML = '<div class="info test-result">🔄 Testing online yoga booking...</div>';
+            
+            try {
+                // Check if booking modal exists
+                if (!window.bookingModal) {
+                    throw new Error('Booking modal not found');
+                }
+                
+                result.innerHTML = '<div class="success test-result">✅ Booking modal found</div>';
+                
+                // Check online program configuration
+                if (!window.bookingModal.programs || !window.bookingModal.programs.online) {
+                    throw new Error('Online yoga configuration missing');
+                }
+                
+                result.innerHTML += '<div class="success test-result">✅ Online yoga configuration found</div>';
+                
+                // Open the modal for online yoga
+                window.bookingModal.openModal('online');
+                
+                result.innerHTML += '<div class="success test-result">✅ Modal opened for online yoga</div>';
+                
+                // Check if date fields are properly hidden/disabled
+                setTimeout(() => {
+                    const checkInDate = document.querySelector('#checkInDate');
+                    const checkOutDate = document.querySelector('#checkOutDate');
+                    const dateSection = document.querySelector('#dateSection');
+                    
+                    let statusHtml = '';
+                    
+                    if (dateSection && dateSection.style.display === 'none') {
+                        statusHtml += '<div class="success test-result">✅ Date section is hidden for online yoga</div>';
+                    } else {
+                        statusHtml += '<div class="error test-result">❌ Date section should be hidden for online yoga</div>';
+                    }
+                    
+                    if (checkInDate && !checkInDate.hasAttribute('required')) {
+                        statusHtml += '<div class="success test-result">✅ Check-in date is not required for online yoga</div>';
+                    } else {
+                        statusHtml += '<div class="error test-result">❌ Check-in date should not be required for online yoga</div>';
+                    }
+                    
+                    if (checkOutDate && !checkOutDate.hasAttribute('required')) {
+                        statusHtml += '<div class="success test-result">✅ Check-out date is not required for online yoga</div>';
+                    } else {
+                        statusHtml += '<div class="error test-result">❌ Check-out date should not be required for online yoga</div>';
+                    }
+                    
+                    statusHtml += '<div class="info test-result">📝 Now fill in the form and try clicking "Pay Now"</div>';
+                    
+                    status.innerHTML = statusHtml;
+                }, 500);
+                
+            } catch (error) {
+                result.innerHTML = '<div class="error test-result">❌ Error: ' + error.message + '</div>';
+                status.innerHTML = '<div class="error test-result">❌ Test failed: ' + error.message + '</div>';
+            }
+        }
+
+        // Auto-run basic checks on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('Page loaded, checking booking modal...');
+                if (window.bookingModal) {
+                    console.log('✅ Booking modal initialized successfully');
+                } else {
+                    console.error('❌ Booking modal not found');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

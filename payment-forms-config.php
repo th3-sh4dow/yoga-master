@@ -32,10 +32,10 @@ class PaymentFormsConfig {
             'Weekend Wellness Yoga Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
             
             // Online Yoga at Home - Membership Plans
-            'Online Yoga at Home_weekly_online' => 'https://payments.cashfree.com/forms/online-yoga-weekly-1499',
-            'Online Yoga at Home_monthly_online' => 'https://payments.cashfree.com/forms/online-yoga-monthly-3999',
-            'Online Yoga at Home_quarterly_online' => 'https://payments.cashfree.com/forms/online-yoga-quarterly-9999',
-            'Online Yoga at Home_flexible_online' => 'https://payments.cashfree.com/forms/online-yoga-flexible-500'
+            'Online Yoga at Home_weekly_online' => 'https://payments.cashfree.com/forms/Weekly-Membership-Plan',
+            'Online Yoga at Home_monthly_online' => 'https://payments.cashfree.com/forms/Monthly-Membership-Plan',
+            'Online Yoga at Home_quarterly_online' => 'https://payments.cashfree.com/forms/Quarterly-Membership-Plan',
+            'Online Yoga at Home_flexible_online' => 'https://payments.cashfree.com/forms/Flexible-Yoga-Plan'
         ];
     }
     
