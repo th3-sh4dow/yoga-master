@@ -21,22 +21,12 @@ class BookingModal {
                 durationDays: 2,
                 prices: {
                     'garden_single': 16000,
-                    'garden_double': 8000,  // Updated to match your Cashfree form
+                    'garden_double': 14000,  // Updated to match your requirement
                     'premium_single': 18000,
                     'premium_double': 16000
                 }
             },
-            '5day': {
-                title: '5-Day Wellness & Retreat',
-                duration: '5 Days & 4 Nights',
-                durationDays: 4,
-                prices: {
-                    'garden_single': 16000,
-                    'garden_double': 14000,
-                    'premium_single': 16000,
-                    'premium_double': 14000
-                }
-            },
+
             '7day': {
                 title: '7 Days Yoga & Wellness Detox Retreat',
                 duration: '7 Days & 6 Nights',
@@ -49,12 +39,13 @@ class BookingModal {
                 }
             },
             'online': {
-                title: 'Online Yoga & Meditation Classes',
+                title: 'Online Yoga at Home',
                 duration: 'Flexible Schedule',
                 prices: {
-                    'monthly': 2000,
-                    'quarterly': 5000,
-                    'yearly': 15000
+                    'weekly': 1499,
+                    'monthly': 3999,
+                    'quarterly': 9999,
+                    'flexible': 500
                 }
             }
         };
@@ -332,9 +323,8 @@ class BookingModal {
         
         // Show/hide sections based on program type
         if (this.currentProgram === 'online') {
-            accommodationSection.style.display = 'none';
-            dateSection.style.display = 'none';
-            return;
+            accommodationSection.style.display = 'block'; // Show accommodation section for online
+            dateSection.style.display = 'none'; // Hide date section for online
         } else {
             accommodationSection.style.display = 'block';
             dateSection.style.display = 'block';
@@ -369,25 +359,31 @@ class BookingModal {
         // For online classes, show different options
         if (this.currentProgram === 'online') {
             container.innerHTML = `
+                <div class="accommodation-option" data-value="weekly">
+                    <input type="radio" name="accommodation" value="weekly" required>
+                    <strong>Weekly Membership Plan</strong><br>
+                    <small>₹1,499 - 5 live sessions</small>
+                </div>
                 <div class="accommodation-option" data-value="monthly">
                     <input type="radio" name="accommodation" value="monthly" required>
-                    <strong>Monthly Plan</strong><br>
-                    <small>1 Month Access</small>
+                    <strong>Monthly Membership Plan</strong><br>
+                    <small>₹3,999 - 20+ live classes</small>
                 </div>
                 <div class="accommodation-option" data-value="quarterly">
                     <input type="radio" name="accommodation" value="quarterly" required>
-                    <strong>Quarterly Plan</strong><br>
-                    <small>3 Months Access</small>
+                    <strong>Quarterly Membership Plan</strong><br>
+                    <small>₹9,999 - 20 classes/month</small>
                 </div>
-                <div class="accommodation-option" data-value="yearly">
-                    <input type="radio" name="accommodation" value="yearly" required>
-                    <strong>Yearly Plan</strong><br>
-                    <small>12 Months Access</small>
+                <div class="accommodation-option" data-value="flexible">
+                    <input type="radio" name="accommodation" value="flexible" required>
+                    <strong>Flexible Yoga Plan</strong><br>
+                    <small>₹500 per session</small>
                 </div>
             `;
             
             // Add click event listeners
             this.addAccommodationClickHandlers();
+            return; // Important: return here to prevent the regular accommodation setup
         }
     }
 
@@ -403,6 +399,18 @@ class BookingModal {
                 option.classList.add('selected');
             }
         });
+
+        // Update accommodation section label based on program type
+        const accommodationLabel = this.modal.querySelector('#accommodationSection label');
+        const accommodationHelper = this.modal.querySelector('#accommodationSection .form-text');
+        
+        if (programKey === 'online') {
+            accommodationLabel.textContent = 'Select Membership Plan *';
+            accommodationHelper.textContent = 'Choose your preferred online yoga membership plan';
+        } else {
+            accommodationLabel.textContent = 'Accommodation Type & Occupancy *';
+            accommodationHelper.textContent = 'Choose your accommodation and occupancy preference';
+        }
 
         this.populateAccommodationOptions();
         this.updatePriceSummary();
@@ -781,23 +789,43 @@ class BookingModal {
         const checkOut = formData.get('check_out_date');
         const specialRequirements = formData.get('special_requirements');
         
-        // Create WhatsApp message
-        let message = `🧘‍♀️ *Yoga Retreat Booking Request*\n\n`;
-        message += `👤 *Name:* ${name}\n`;
-        message += `📧 *Email:* ${email}\n`;
-        message += `📱 *Phone:* ${phone}\n\n`;
-        message += `🏛️ *Program:* ${program.title}\n`;
-        message += `🏠 *Accommodation:* ${this.getAccommodationText(selectedAccommodation.value)}\n`;
-        message += `💰 *Amount:* ₹${amount.toLocaleString()}\n\n`;
+        // Create WhatsApp message based on program type
+        let message = '';
         
-        if (checkIn) message += `📅 *Check-in:* ${checkIn}\n`;
-        if (checkOut) message += `📅 *Check-out:* ${checkOut}\n`;
-        if (specialRequirements) message += `📝 *Special Requirements:* ${specialRequirements}\n`;
-        
-        message += `\nPlease confirm my booking and share payment details. Thank you! 🙏`;
+        if (selectedProgram.value === 'online') {
+            // Online Yoga booking message
+            message = `🧘‍♀️ *Online Yoga at Home - Booking Request*\n\n`;
+            message += `👤 *Name:* ${name}\n`;
+            message += `📧 *Email:* ${email}\n`;
+            message += `📱 *Phone:* ${phone}\n\n`;
+            message += `💻 *Membership Plan:* ${this.getAccommodationText(selectedAccommodation.value)}\n`;
+            message += `💰 *Amount:* ₹${amount.toLocaleString()}\n\n`;
+            if (specialRequirements) message += `📝 *Special Requirements:* ${specialRequirements}\n\n`;
+            message += `Please confirm my online yoga membership and share:\n`;
+            message += `• Payment details\n`;
+            message += `• Class schedule\n`;
+            message += `• Joining instructions\n`;
+            message += `• WhatsApp group link\n\n`;
+            message += `Thank you! 🙏`;
+        } else {
+            // Retreat booking message
+            message = `🧘‍♀️ *Yoga Retreat Booking Request*\n\n`;
+            message += `👤 *Name:* ${name}\n`;
+            message += `📧 *Email:* ${email}\n`;
+            message += `📱 *Phone:* ${phone}\n\n`;
+            message += `🏛️ *Program:* ${program.title}\n`;
+            message += `🏠 *Accommodation:* ${this.getAccommodationText(selectedAccommodation.value)}\n`;
+            message += `💰 *Amount:* ₹${amount.toLocaleString()}\n\n`;
+            
+            if (checkIn) message += `📅 *Check-in:* ${checkIn}\n`;
+            if (checkOut) message += `📅 *Check-out:* ${checkOut}\n`;
+            if (specialRequirements) message += `📝 *Special Requirements:* ${specialRequirements}\n`;
+            
+            message += `\nPlease confirm my booking and share payment details. Thank you! 🙏`;
+        }
         
         // Open WhatsApp
-        const whatsappNumber = '916203517866'; // Your WhatsApp number
+        const whatsappNumber = '918969464548'; // Your WhatsApp number
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
         
         window.open(whatsappUrl, '_blank');

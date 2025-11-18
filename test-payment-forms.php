@@ -19,8 +19,8 @@ echo "<style>
 $programs = [
     'Weekend Wellness Yoga Retreat',
     '3-Day Wellness & Retreat',
-    '5-Day Wellness & Retreat',
-    '7 Days Yoga & Wellness Detox Retreat'
+    '7 Days Yoga & Wellness Detox Retreat',
+    'Online Yoga at Home'
 ];
 
 $accommodations = ['garden_cottage', 'premium_cottage'];

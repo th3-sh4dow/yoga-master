@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Booking Successful - Online Yoga at Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .success-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .success-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px;
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .success-title {
+            color: #5ba17a;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: 'Old Standard TT', serif;
+        }
+        .booking-id {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #28a745;
+        }
+        .next-steps {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .btn-home {
+            background: linear-gradient(45deg, #5ba17a, #4a9268);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        .btn-home:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fa fa-check-circle"></i>
+            </div>
+            <h1 class="success-title">Booking Successful!</h1>
+            <p class="lead">Thank you for choosing Online Yoga at Home</p>
+            
+            <div class="booking-id">
+                <h5><i class="fa fa-ticket"></i> Booking ID: <span id="bookingId">Loading...</span></h5>
+                <p class="mb-0">Please save this booking ID for your records</p>
+            </div>
+            
+            <div class="next-steps">
+                <h6><i class="fa fa-info-circle"></i> What happens next?</h6>
+                <ul class="mb-0">
+                    <li>You will receive a confirmation email shortly</li>
+                    <li>Our team will contact you within 24 hours</li>
+                    <li>You'll receive class schedule and joining instructions</li>
+                    <li>WhatsApp group link will be shared for updates</li>
+                </ul>
+            </div>
+            
+            <div class="contact-info">
+                <p><strong>Need help?</strong></p>
+                <p>
+                    <i class="fa fa-whatsapp"></i> WhatsApp: +91-8969464548<br>
+                    <i class="fa fa-envelope"></i> Email: naturelandyogchetna@gmail.com
+                </p>
+            </div>
+            
+            <div class="mt-4">
+                <a href="index.html" class="btn-home">
+                    <i class="fa fa-home"></i> Back to Home
+                </a>
+                <a href="online-classes.html" class="btn-home">
+                    <i class="fa fa-laptop"></i> View Plans
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get booking ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookingId = urlParams.get('booking_id') || 'Not Available';
+        document.getElementById('bookingId').textContent = bookingId;
+        
+        // Auto redirect after 30 seconds
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 30000);
+    </script>
+</body>
+</html>

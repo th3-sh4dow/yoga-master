@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Online Yoga Booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/booking-modal.css">
+    <style>
+        .test-card {
+            border: 2px solid #5ba17a;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+        }
+        .step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">🧘‍♀️ Online Yoga Booking Verification</h2>
+                <p class="text-center lead">Test the complete booking flow for all membership plans</p>
+                
+                <div class="test-card">
+                    <h4>📋 Booking Flow Test</h4>
+                    <div class="step">
+                        <strong>Step 1:</strong> Click "Test Booking" button below
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> Select "Online Yoga at Home" program
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Choose one of 4 membership plans:
+                        <ul class="mt-2">
+                            <li>Weekly Plan - ₹1,499</li>
+                            <li>Monthly Plan - ₹3,999</li>
+                            <li>Quarterly Plan - ₹9,999</li>
+                            <li>Flexible Plan - ₹500/session</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Fill in your details (no dates needed for online)
+                    </div>
+                    <div class="step">
+                        <strong>Step 5:</strong> Choose payment method (Pay Now or WhatsApp)
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-success btn-lg" onclick="openBookingModal('online')">
+                            <i class="fa fa-play"></i> Test Online Yoga Booking
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="test-card">
+                    <h4>✅ What Should Work:</h4>
+                    <ul>
+                        <li>All 4 membership plans should be visible</li>
+                        <li>Prices should display correctly</li>
+                        <li>No date selection required</li>
+                        <li>WhatsApp message should include plan details</li>
+                        <li>Payment should redirect to correct Cashfree form</li>
+                    </ul>
+                </div>
+                
+                <div class="test-card">
+                    <h4>🔗 Quick Links:</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="online-classes.html" class="btn btn-primary btn-block">
+                                <i class="fa fa-laptop"></i> Online Classes Page
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="admin.html" class="btn btn-secondary btn-block">
+                                <i class="fa fa-cog"></i> Admin Panel
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="test-payment-forms.php" class="btn btn-info btn-block">
+                                <i class="fa fa-credit-card"></i> Test Payment Forms
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="index.html" class="btn btn-warning btn-block">
+                                <i class="fa fa-home"></i> Home Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info">
+                    <h6><i class="fa fa-info-circle"></i> Note:</h6>
+                    <p class="mb-0">If you see any issues, check the browser console for error messages. The booking system is now configured to show all 4 membership plans when "Online Yoga at Home" is selected.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/booking-modal.js"></script>
+</body>
+</html>

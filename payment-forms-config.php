@@ -18,12 +18,7 @@ class PaymentFormsConfig {
             '3-Day Wellness & Retreat_premium_cottage_single' => 'https://payments.cashfree.com/forms/3-days-Premium-Cottage-Single',
             '3-Day Wellness & Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
             
-            // 5-Day Programs
-            '5-Day Wellness & Retreat_garden_cottage_single' => 'https://payments.cashfree.com/forms/5-days-Garden-Cottage-Single',
-            '5-Day Wellness & Retreat_garden_cottage_double' => 'https://payments.cashfree.com/forms/5-days-Garden-Cottage-Double',
-            '5-Day Wellness & Retreat_premium_cottage_single' => 'https://payments.cashfree.com/forms/5-days-Premium-Cottage-Single',
-            '5-Day Wellness & Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/5-days-Premium-Cottage-Double',
-            
+
             // 7 Days Yoga & Wellness Detox Retreat
             '7 Days Yoga & Wellness Detox Retreat_garden_cottage_single' => 'https://payments.cashfree.com/forms/1-Week-Garden-Cottage-Single',
             '7 Days Yoga & Wellness Detox Retreat_garden_cottage_double' => 'https://payments.cashfree.com/forms/1-week-Garden-Cottage-Double',
@@ -34,7 +29,13 @@ class PaymentFormsConfig {
             'Weekend Wellness Yoga Retreat_garden_cottage_single' => 'https://payments.cashfree.com/forms/3days-garden-cottage',
             'Weekend Wellness Yoga Retreat_garden_cottage_double' => 'https://payments.cashfree.com/forms/3-days-Garden-Cottage-Double',
             'Weekend Wellness Yoga Retreat_premium_cottage_single' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
-            'Weekend Wellness Yoga Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage'
+            'Weekend Wellness Yoga Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
+            
+            // Online Yoga at Home - Membership Plans
+            'Online Yoga at Home_weekly_online' => 'https://payments.cashfree.com/forms/online-yoga-weekly-1499',
+            'Online Yoga at Home_monthly_online' => 'https://payments.cashfree.com/forms/online-yoga-monthly-3999',
+            'Online Yoga at Home_quarterly_online' => 'https://payments.cashfree.com/forms/online-yoga-quarterly-9999',
+            'Online Yoga at Home_flexible_online' => 'https://payments.cashfree.com/forms/online-yoga-flexible-500'
         ];
     }
     
@@ -88,8 +89,8 @@ class PaymentFormsConfig {
         return [
             'Weekend Wellness Yoga Retreat',
             '3-Day Wellness & Retreat',
-            '5-Day Wellness & Retreat',
-            '7 Days Yoga & Wellness Detox Retreat'
+            '7 Days Yoga & Wellness Detox Retreat',
+            'Online Yoga at Home'
         ];
     }
     

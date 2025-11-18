@@ -182,17 +182,18 @@ if ($_POST && isset($_POST['action'])) {
                     <?php
                     $your_forms = [
                         '3-days-Premium-Cottage-Single' => '₹18,000.00',
-                        '3-days-Garden-Cottage-Double' => '₹8,000.00',
-                        '5-days-Premium-Cottage-Double' => '₹14,000.00',
-                        '5-days-Premium-Cottage-Single' => '₹16,000.00',
-                        '5-days-Garden-Cottage-Double' => '₹14,000.00',
-                        '5-days-Garden-Cottage-Single' => '₹16,000.00',
+                        '3-days-Garden-Cottage-Double' => '₹14,000.00',
+
                         '1-week-Premium-Cottage-Double' => '₹34,000.00',
                         '1-week-Premium-Cottage-Single' => '₹39,000.00',
                         '1-week-Garden-Cottage-Double' => '₹30,000.00',
                         '1-Week-Garden-Cottage-Single' => '₹35,000.00',
                         '3days-garden-cottage' => '₹10,000.00',
-                        '3days-Premium-Cottage' => '₹16,000.00'
+                        '3days-Premium-Cottage' => '₹16,000.00',
+                        'online-yoga-weekly-1499' => '₹1,499.00',
+                        'online-yoga-monthly-3999' => '₹3,999.00',
+                        'online-yoga-quarterly-9999' => '₹9,999.00',
+                        'online-yoga-flexible-500' => '₹500.00'
                     ];
                     
                     foreach ($your_forms as $form_name => $amount):

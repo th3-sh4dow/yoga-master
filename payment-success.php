@@ -268,8 +268,8 @@
             
             <div style="margin-top: 40px; color: #6c757d;">
                 <p><strong>Need Help?</strong></p>
-                <p>WhatsApp us at <strong>+91-6203517866</strong> or email <strong>naturelandyogchetna@gmail.com</strong></p>
-                <a href="https://wa.me/916203517866" target="_blank" class="btn btn-success mt-2">
+                <p>WhatsApp us at <strong>+91-8969464548</strong> or email <strong>naturelandyogchetna@gmail.com</strong></p>
+                <a href="https://wa.me/918969464548" target="_blank" class="btn btn-success mt-2">
                     <i class="fa fa-whatsapp"></i> Chat on WhatsApp
                 </a>
             </div>
