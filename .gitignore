@@ -1,31 +1,33 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-.venv
+# Environment files - NEVER commit these
+.env
+.env.local
+.env.production
+.env.staging
 
-# Replit
-.replit
-.config/
-.cache/
-.upm/
-.local/
+# Database credentials
+dbpass
+db_config.php
 
-# OS
+# Log files
+*.log
+payment_webhook_log*.txt
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE files
+.vscode/settings.json
+.idea/
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Backup files
+*.bak
+*.backup
 
-# Logs
-*.log
+# Cache files
+cache/
+tmp/
