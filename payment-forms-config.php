@@ -26,10 +26,10 @@ class PaymentFormsConfig {
             '7 Days Yoga & Wellness Detox Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/1-week-Premium-Cottage-Double',
             
             // Weekend Wellness Yoga Retreat (2 Days)
-            'Weekend Wellness Yoga Retreat_garden_cottage_single' => 'https://payments.cashfree.com/forms/3days-garden-cottage',
-            'Weekend Wellness Yoga Retreat_garden_cottage_double' => 'https://payments.cashfree.com/forms/3-days-Garden-Cottage-Double',
-            'Weekend Wellness Yoga Retreat_premium_cottage_single' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
-            'Weekend Wellness Yoga Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
+            'Weekend Wellness Yoga Retreat_garden_cottage_single' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Garden-Cottage-Single-Occupancy',
+            'Weekend Wellness Yoga Retreat_garden_cottage_double' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Garden-Cottage-Double-Occupancy',
+            'Weekend Wellness Yoga Retreat_premium_cottage_single' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Premium-Cottage-Single-Occupancy',
+            'Weekend Wellness Yoga Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Premium-Cottage-Double-Occupancy',
             
             // Online Yoga at Home - Membership Plans
             'Online Yoga at Home_weekly_online' => 'https://payments.cashfree.com/forms/Weekly-Membership-Plan',
@@ -67,7 +67,7 @@ class PaymentFormsConfig {
      */
     private static function getFallbackMappings() {
         return [
-            '3-Day_garden_single' => 'https://payments.cashfree.com/forms/1-Week-Garden-Cottage-Single',
+            '3-Day_garden_single' => 'https://payments.cashfree.com/forms/3days-garden-cottage',
             '3-Day_garden_double' => 'https://payments.cashfree.com/forms/3-days-Garden-Cottage-Double',
             '3-Day_premium_single' => 'https://payments.cashfree.com/forms/3-days-Premium-Cottage-Single',
             '3-Day_premium_double' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage',
@@ -77,8 +77,10 @@ class PaymentFormsConfig {
             '7_premium_single' => 'https://payments.cashfree.com/forms/1-week-Premium-Cottage-Single',
             '7_premium_double' => 'https://payments.cashfree.com/forms/1-week-Premium-Cottage-Double',
             
-            'Weekend_garden' => 'https://payments.cashfree.com/forms/3days-garden-cottage',
-            'Weekend_premium' => 'https://payments.cashfree.com/forms/3days-Premium-Cottage'
+            'Weekend_garden_single' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Garden-Cottage-Single-Occupancy',
+            'Weekend_garden_double' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Garden-Cottage-Double-Occupancy',
+            'Weekend_premium_single' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Premium-Cottage-Single-Occupancy',
+            'Weekend_premium_double' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Premium-Cottage-Double-Occupancy'
         ];
     }
     
