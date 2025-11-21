@@ -966,8 +966,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error initializing BookingModal:', error);
     }
     
-    // Add click handlers to existing booking buttons
+    // Add click handlers to existing booking buttons (exclude navigation links)
     document.querySelectorAll('a[href*="courses.html"], a[href*="contact.html"]').forEach(link => {
+        // Skip navigation menu links
+        if (link.closest('nav, .navbar, .navigation, .nav-item, .sidenav')) {
+            return;
+        }
+        
         if (link.textContent.toLowerCase().includes('book') || 
             link.textContent.toLowerCase().includes('retreat') ||
             link.textContent.toLowerCase().includes('join')) {
