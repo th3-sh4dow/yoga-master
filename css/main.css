@@ -173,7 +173,6 @@ header {
     left: 0;
     width: 100%;
     padding: 40px 0;
-    transition: all 0.3s ease;
 }
 
 .header {
@@ -192,7 +191,9 @@ header .social-icons {
     position: relative;
 }
 
-
+header .social-icons a {
+    margin-left: 25px;
+}
 
 header .social-icons i {
     font-size: 30px;
@@ -208,13 +209,11 @@ header .social-icons i {
 
 .sticky {
     z-index: 99;
-    position: fixed !important;
+    position: fixed;
     font-weight: 600;
     top: 0;
     width: 100%;
-    background: rgba(73, 160, 3, 0.94) !important;
-    transition: all 0.3s ease;
-    padding: 10px 0;
+    background: rgba(73, 160, 3, 0.94);
 }
 
 .sticky img {
@@ -239,42 +238,6 @@ header .social-icons i:hover {
     letter-spacing: 3px;
 }
 
-/* Desktop specific sticky navigation */
-@media (min-width: 769px) {
-    .sticky {
-        background: rgba(73, 160, 3, 0.95) !important;
-        padding: 15px 0 !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        z-index: 9999 !important;
-    }
-    
-    .sticky img {
-        width: auto;
-        max-width: 100px;
-        padding: 8px 0;
-    }
-    
-    .sticky p {
-        font-size: 14px;
-        letter-spacing: 2px;
-        color: white !important;
-    }
-    
-    .sticky .social-icons i {
-        color: white !important;
-    }
-}
-
-/* Force sticky behavior on all devices */
-.sticky {
-    display: block !important;
-    visibility: visible !important;
-}
-
 .affix {
     top: 0;
     z-index: 9999 !important;
@@ -292,17 +255,16 @@ header .social-icons i:hover {
 }
 
 .sidenav {
-    height: 100vh;
+    height: 100%;
     width: 0;
     position: fixed;
-    z-index: 999999;
+    z-index: 999;
     top: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.8392156862745098);
-    overflow: hidden;
+    overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
-    box-sizing: border-box;
+    padding-top: 70px;
 }
 
 .sidenav.hided {
@@ -363,10 +325,8 @@ header .border-img {
 
 @media screen and (max-height: 450px) {
     .sidenav {
-        padding-top: 50px;
-        z-index: 999999;
-        height: 100vh !important;
-        overflow: hidden !important;
+        padding-top: 15px;
+        z-index: 9999;
     }
 
     .sidenav a {
@@ -1950,15 +1910,13 @@ header .border-img {
     }
 
     .services p {
-        padding-right: 20px;
+        padding-right: 220px;
     }
 }
 
 @media(max-width:1024px) {
     .container {
         max-width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
     }
 
     .sidenav a {
@@ -2521,7 +2479,7 @@ header .border-img {
     }
 
     .blog h4 {
-        padding-right: 20px;
+        padding-right: 100px;
     }
 
     .blog .heading img {
@@ -2631,7 +2589,7 @@ header .border-img {
     }
 
     .blog-page h4 {
-        padding-right: 20px;
+        padding-right: 100px;
     }
 
     .blog-page .heading img {
@@ -2690,7 +2648,7 @@ header .border-img {
     }
 
     .blog-page-another h4 {
-        padding-right: 20px;
+        padding-right: 100px;
     }
 
     .blog-page-another .heading img {
@@ -3331,53 +3289,6 @@ header .border-img {
     .about {
         padding-bottom: 30px;
     }
-    
-    /* Additional overflow fixes for very small screens */
-    .container-fluid {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .section-4 .right-part {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .services .right-part {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-/* Global overflow prevention */
-* {
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Prevent horizontal scroll on all screen sizes */
-@media (max-width: 768px) {
-    .section-4 p,
-    .services p {
-        padding-right: 0 !important;
-    }
-    
-    .blog .inner-content,
-    .blog-page .inner-content,
-    .blog-page-another .inner-content {
-        padding-right: 0 !important;
-    }
-    
-    .section-4 .right-part,
-    .services .right-part {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
 }
 
 
@@ -3391,383 +3302,4 @@ header .social-icons .fa-whatsapp:hover {
 
 header .social-icons .fa-facebook-official:hover {
     color: #1877F2;
-}
-
-/* Additional sticky navigation fixes for cross-browser compatibility */
-.sticky {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-/* Ensure header positioning works correctly */
-header {
-    transition: all 0.3s ease;
-}
-
-header.sticky {
-    background: rgba(73, 160, 3, 0.95) !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    padding: 15px 0 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s ease !important;
-}
-
-/* Fix for potential z-index issues */
-.sticky {
-    z-index: 9999 !important;
-}
-
-/* Ensure sidenav is always on top - HIGHEST PRIORITY */
-.sidenav {
-    z-index: 999999 !important;
-    position: fixed !important;
-}
-
-/* Force sidenav above everything */
-#mySidenav {
-    z-index: 999999 !important;
-    position: fixed !important;
-}
-
-/* Mobile menu overlay fix */
-@media (max-width: 768px) {
-    .sidenav {
-        z-index: 999999 !important;
-        position: fixed !important;
-        height: 100vh !important;
-        height: 100dvh !important; /* Dynamic viewport height for mobile */
-        overflow: hidden !important;
-        padding-top: 50px !important;
-    }
-    
-    #mySidenav {
-        z-index: 999999 !important;
-        position: fixed !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        overflow: hidden !important;
-    }
-}
-
-/* Smooth transition for all sticky elements */
-.sticky * {
-    transition: all 0.3s ease;
-}
-/*
- Additional desktop sticky fixes */
-@media (min-width: 1024px) {
-    /* Ensure header becomes sticky on desktop */
-    header.sticky,
-    nav.sticky,
-    #navbar.sticky {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        background: rgba(73, 160, 3, 0.95) !important;
-        z-index: 9998 !important;
-        padding: 10px 0 !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    /* Desktop text styling */
-    header.sticky p,
-    nav.sticky p,
-    #navbar.sticky p {
-        color: white !important;
-        font-size: 14px !important;
-    }
-    
-    /* Desktop social icons */
-    header.sticky .social-icons i,
-    nav.sticky .social-icons i,
-    #navbar.sticky .social-icons i {
-        color: white !important;
-    }
-}
-
-.container{
-    margin-top: 10px;
-}
-/* A
-dditional Mobile Menu Fixes */
-.sidenav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99998;
-    display: none;
-}
-
-/* Ensure mobile menu works properly on all scroll positions */
-
-/* Force sidenav to be on top of everything */
-#mySidenav {
-    z-index: 999999 !important;
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-}
-
-/* Ensure sidenav content is visible */
-.sidenav * {
-    z-index: inherit;
-    position: relative;
-}
-
-/* Sidenav links should be visible */
-.sidenav a {
-    z-index: 999999 !important;
-    position: relative !important;
-    display: block !important;
-    color: #fff !important;
-}
-
-/* Override any conflicting styles */
-.sidenav, #mySidenav {
-    z-index: 999999 !important;
-    position: fixed !important;
-}
-
-/* Ensure no other element can override sidenav */
-body .sidenav {
-    z-index: 999999 !important;
-}
-
-/* Fix sidenav height and scrolling issues */
-.sidenav {
-    height: 100vh !important;
-    height: 100dvh !important; /* For mobile browsers */
-    overflow: hidden !important;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Sidenav content wrapper */
-.sidenav-content {
-    height: calc(100vh - 60px);
-    height: calc(100dvh - 60px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-bottom: 20px;
-}
-
-/* Mobile specific fixes */
-@media (max-width: 768px) {
-    .sidenav {
-        height: 100vh !important;
-        height: 100dvh !important;
-        overflow: hidden !important;
-        padding-top: 40px !important;
-    }
-    
-    .sidenav a {
-        padding: 12px 8px 12px 32px !important;
-        font-size: 16px !important;
-        line-height: 1.4 !important;
-    }
-}
-
-/* Prevent body scroll when sidenav is open - without layout shift */
-body.sidenav-open {
-    overflow: hidden !important;
-}
-
-/* Alternative method for iOS devices */
-@supports (-webkit-touch-callout: none) {
-    body.sidenav-open {
-        position: relative;
-        overflow: hidden;
-    }
-}
-
-/* Custom Scrollbar Styles - Thin or Hidden */
-
-/* For Webkit browsers (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-    width: 4px; /* Very thin scrollbar */
-    height: 4px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(91, 161, 122, 0.3);
-    border-radius: 2px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(91, 161, 122, 0.6);
-}
-
-/* For Firefox */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(91, 161, 122, 0.3) transparent;
-}
-
-/* Alternative - Completely hide scrollbar but keep functionality */
-.hide-scrollbar {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-}
-
-.hide-scrollbar::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
-
-/* Apply to body for completely hidden scrollbar */
-body.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-body.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-/* Sidenav specific - no scrollbar */
-.sidenav::-webkit-scrollbar {
-    display: none;
-}
-
-.sidenav {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Mobile specific - hide all scrollbars */
-@media (max-width: 768px) {
-    body {
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Hide scrollbar on mobile but keep scroll functionality */
-    body::-webkit-scrollbar {
-        width: 0px;
-        background: transparent;
-    }
-}
-
-/* Fix content centering issues */
-body {
-    margin: 0 auto;
-    text-align: left;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.container {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.container-fluid {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-/* Ensure proper centering for main content areas */
-.about .container,
-.services .container-fluid,
-.section-4 .container-fluid,
-.banner-home .container {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: left;
-}
-
-/* Fix any layout shifts */
-.row {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Prevent content from shifting when scrollbar appears/disappears */
-html {
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-}
-
-/* Alternative: Use margin compensation instead of padding */
-@media (min-width: 768px) {
-    body {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-}
-
-/* Prevent double scrollbars and overflow issues */
-html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-}
-
-/* Ensure no horizontal overflow from any element */
-* {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-/* Fix for containers that might cause overflow */
-.container, .container-fluid {
-    overflow-x: hidden !important;
-    max-width: 100% !important;
-}
-
-/* Prevent images from causing overflow */
-img {
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* Remove any forced scrollbars */
-body {
-    overflow-y: auto !important; /* Only show vertical scrollbar when needed */
-    overflow-x: hidden !important; /* Never show horizontal scrollbar */
-}/* E
-nhanced Sticky Navbar Animation */
-#navbar.sticky {
-    background: rgba(73, 160, 3, 0.95) !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    padding: 10px 0 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s ease !important;
-    z-index: 9998 !important;
-}
-
-/* Sticky animation for mobile */
-@media (max-width: 768px) {
-    header.sticky,
-    #navbar.sticky {
-        background: rgba(73, 160, 3, 0.98) !important;
-        padding: 8px 0 !important;
-    }
-}
-
-/* Smooth transition for all sticky elements */
-header, #navbar, nav {
-    transition: all 0.3s ease !important;
-}
-
-/* Ensure sticky animation works on all browsers */
-.sticky {
-    -webkit-transition: all 0.3s ease !important;
-    -moz-transition: all 0.3s ease !important;
-    -o-transition: all 0.3s ease !important;
-    transition: all 0.3s ease !important;
 }
