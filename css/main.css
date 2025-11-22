@@ -191,14 +191,13 @@ header .social-icons {
     position: relative;
 }
 
-header .social-icons a {
-    margin-left: 25px;
-}
+
 
 header .social-icons i {
     font-size: 30px;
     color: white;
     margin-left: 8px;
+    
 }
 
 .square {

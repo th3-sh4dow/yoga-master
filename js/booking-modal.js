@@ -266,6 +266,7 @@ class BookingModal {
                     <div class="program-title">${program.title}</div>
                     <div class="program-duration">${program.duration}</div>
                     <div class="program-price">Starting from ₹${Math.min(...Object.values(program.prices)).toLocaleString()}</div>
+                    <button type="button" class="read-more-btn" data-program="${key}">Read More</button>
                 </div>
             `;
             container.insertAdjacentHTML('beforeend', programHTML);
@@ -273,6 +274,8 @@ class BookingModal {
         
         // Add click event listeners for program options
         this.addProgramClickHandlers();
+        // Add click event listeners for read more buttons
+        this.addReadMoreHandlers();
     }
 
     addProgramClickHandlers() {
@@ -314,6 +317,232 @@ class BookingModal {
                 }
             });
         });
+    }
+
+    addReadMoreHandlers() {
+        const readMoreButtons = this.modal.querySelectorAll('.read-more-btn');
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent triggering program selection
+                const programKey = button.dataset.program;
+                this.showProgramDetails(programKey);
+            });
+        });
+    }
+
+    showProgramDetails(programKey) {
+        const program = this.programs[programKey];
+        const programDetails = this.getProgramDetails(programKey);
+        
+        // Create details modal
+        const detailsModal = document.createElement('div');
+        detailsModal.className = 'program-details-modal';
+        detailsModal.innerHTML = `
+            <div class="program-details-content">
+                <div class="program-details-header">
+                    <h3>${program.title}</h3>
+                    <span class="close-details">&times;</span>
+                </div>
+                <div class="program-details-body">
+                    <div class="program-overview">
+                        <h4>Program Overview</h4>
+                        <p><strong>Duration:</strong> ${program.duration}</p>
+                        <p><strong>Starting Price:</strong> ₹${Math.min(...Object.values(program.prices)).toLocaleString()}</p>
+                    </div>
+                    
+                    <div class="program-description">
+                        <h4>What's Included</h4>
+                        <ul>
+                            ${programDetails.includes.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="program-benefits">
+                        <h4>Benefits</h4>
+                        <ul>
+                            ${programDetails.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="program-pricing">
+                        <h4>Pricing Options</h4>
+                        <div class="pricing-grid">
+                            ${Object.entries(program.prices).map(([key, price]) => `
+                                <div class="price-item">
+                                    <span class="price-label">${this.getPriceLabel(key, programKey)}</span>
+                                    <span class="price-amount">₹${price.toLocaleString()}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="program-actions">
+                        <button type="button" class="btn-select-program" data-program="${programKey}">
+                            Select This Program
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(detailsModal);
+        
+        // Add event listeners
+        const closeBtn = detailsModal.querySelector('.close-details');
+        const selectBtn = detailsModal.querySelector('.btn-select-program');
+        
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(detailsModal);
+        });
+        
+        selectBtn.addEventListener('click', () => {
+            // Select the program and close details modal
+            const programRadio = this.modal.querySelector(`input[value="${programKey}"]`);
+            if (programRadio) {
+                programRadio.checked = true;
+                this.handleProgramChange(programKey);
+            }
+            document.body.removeChild(detailsModal);
+        });
+        
+        // Close on outside click
+        detailsModal.addEventListener('click', (e) => {
+            if (e.target === detailsModal) {
+                document.body.removeChild(detailsModal);
+            }
+        });
+    }
+
+    getProgramDetails(programKey) {
+        const details = {
+            'weekend': {
+                includes: [
+                    'Welcome drink and orientation session',
+                    '4 guided yoga sessions (morning & evening)',
+                    '2 meditation sessions',
+                    'Healthy vegetarian meals (3 meals)',
+                    'Accommodation for 1 night',
+                    'Nature walks and relaxation time',
+                    'Yoga mat and props provided',
+                    'Certificate of participation'
+                ],
+                benefits: [
+                    'Perfect introduction to yoga retreat experience',
+                    'Stress relief and mental clarity',
+                    'Improved flexibility and strength',
+                    'Better sleep quality',
+                    'Connection with nature',
+                    'Meet like-minded people',
+                    'Learn basic yoga techniques'
+                ]
+            },
+            '3day': {
+                includes: [
+                    'Welcome ceremony and orientation',
+                    '6 guided yoga sessions (morning & evening)',
+                    '3 meditation and pranayama sessions',
+                    'Ayurvedic consultation',
+                    'Healthy vegetarian meals (9 meals total)',
+                    'Accommodation for 2 nights',
+                    'Nature walks and outdoor activities',
+                    'Yoga philosophy workshop',
+                    'Relaxation and spa time',
+                    'All yoga equipment provided',
+                    'Certificate of completion'
+                ],
+                benefits: [
+                    'Deep relaxation and stress reduction',
+                    'Improved physical fitness and flexibility',
+                    'Enhanced mental focus and clarity',
+                    'Better understanding of yoga principles',
+                    'Detoxification of body and mind',
+                    'Improved sleep patterns',
+                    'Lasting friendships and connections',
+                    'Personal transformation experience'
+                ]
+            },
+            '7day': {
+                includes: [
+                    'Comprehensive welcome package',
+                    '14 guided yoga sessions (morning & evening)',
+                    '7 meditation and pranayama sessions',
+                    'Personal Ayurvedic consultation and treatment',
+                    'All vegetarian meals (21 meals total)',
+                    'Accommodation for 6 nights',
+                    'Daily nature walks and outdoor activities',
+                    'Yoga philosophy and lifestyle workshops',
+                    'Spa treatments and massage therapy',
+                    'Cooking classes (healthy vegetarian)',
+                    'Personal yoga practice development',
+                    'All equipment and materials provided',
+                    'Detailed progress assessment',
+                    'Certificate of completion',
+                    'Take-home wellness kit'
+                ],
+                benefits: [
+                    'Complete physical and mental transformation',
+                    'Significant improvement in flexibility and strength',
+                    'Deep stress relief and emotional healing',
+                    'Established daily yoga practice',
+                    'Better understanding of Ayurvedic principles',
+                    'Improved digestion and metabolism',
+                    'Enhanced sleep quality and energy levels',
+                    'Lasting lifestyle changes',
+                    'Strong foundation in yoga philosophy',
+                    'Personal growth and self-discovery',
+                    'Lifelong wellness habits'
+                ]
+            },
+            'online': {
+                includes: [
+                    'Live interactive yoga sessions via Zoom',
+                    'Recorded sessions for practice anytime',
+                    'Personal guidance from certified instructors',
+                    'WhatsApp group support community',
+                    'Weekly progress tracking',
+                    'Customized yoga sequences',
+                    'Meditation and breathing exercises',
+                    'Yoga philosophy discussions',
+                    'Flexible scheduling options',
+                    'Digital certificates',
+                    'Access to yoga resource library'
+                ],
+                benefits: [
+                    'Practice from comfort of your home',
+                    'Flexible timing to fit your schedule',
+                    'Cost-effective compared to studio classes',
+                    'Personal attention from instructors',
+                    'Build consistent daily practice',
+                    'Connect with global yoga community',
+                    'Improve physical and mental health',
+                    'Learn proper alignment and techniques',
+                    'Reduce stress and anxiety',
+                    'Better work-life balance'
+                ]
+            }
+        };
+        
+        return details[programKey] || { includes: [], benefits: [] };
+    }
+
+    getPriceLabel(priceKey, programKey) {
+        if (programKey === 'online') {
+            const labels = {
+                'weekly': 'Weekly Plan (5 sessions)',
+                'monthly': 'Monthly Plan (20+ classes)',
+                'quarterly': 'Quarterly Plan (20 classes/month)',
+                'flexible': 'Flexible Plan (per session)'
+            };
+            return labels[priceKey] || priceKey;
+        } else {
+            const labels = {
+                'garden_single': 'Garden Cottage - Single',
+                'garden_double': 'Garden Cottage - Double',
+                'premium_single': 'Premium Cottage - Single',
+                'premium_double': 'Premium Cottage - Double'
+            };
+            return labels[priceKey] || priceKey;
+        }
     }
 
     populateAccommodationOptions() {
