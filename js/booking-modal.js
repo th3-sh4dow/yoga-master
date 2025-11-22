@@ -740,8 +740,34 @@ class BookingModal {
             console.log('Selected program value:', selectedProgram.value);
             
             if (selectedProgram.value === 'online') {
-                bookingData.accommodation = accommodationValue; // monthly, quarterly, yearly
+                // For online classes, determine the specific class type based on current page or selection
+                let classType = 'Online Yoga at Home'; // default
+                
+                // Check if getCurrentClassType function exists (from online-classes.html page)
+                if (typeof getCurrentClassType === 'function') {
+                    classType = getCurrentClassType();
+                } else {
+                    // Fallback: Check which tab is currently active to determine class type
+                    const activeTab = document.querySelector('.class-tab.selected');
+                    if (activeTab) {
+                        const tabId = activeTab.id;
+                        if (tabId && tabId.includes('meditation')) {
+                            classType = 'Online Meditation Class';
+                        } else if (tabId && tabId.includes('therapeutic')) {
+                            classType = 'Online Therapeutic Yoga';
+                        } else if (tabId && tabId.includes('ashtanga')) {
+                            classType = 'Online Ashtanga Yoga';
+                        }
+                    }
+                }
+                
+                bookingData.class_type = classType;
+                bookingData.membership_plan = accommodationValue; // weekly, monthly, quarterly, flexible
+                bookingData.accommodation = accommodationValue; // for compatibility
                 bookingData.occupancy = 'online'; // for online classes
+                
+                console.log('Class Type:', classType);
+                console.log('Membership Plan:', accommodationValue);
             } else {
                 // For retreat programs: garden_single, garden_double, premium_single, premium_double
                 const parts = accommodationValue.split('_');
@@ -753,10 +779,14 @@ class BookingModal {
                     bookingData.accommodation = accommodationValue;
                     bookingData.occupancy = 'single'; // default
                 }
+                bookingData.class_type = program.title; // For retreats, class_type is same as program
+                bookingData.membership_plan = null; // Not applicable for retreats
             }
             
             console.log('Final accommodation:', bookingData.accommodation);
             console.log('Final occupancy:', bookingData.occupancy);
+            console.log('Final class_type:', bookingData.class_type);
+            console.log('Final membership_plan:', bookingData.membership_plan);
         }
 
         // Debug: Log the data being sent
@@ -885,11 +915,30 @@ class BookingModal {
         let message = '';
         
         if (selectedProgram.value === 'online') {
+            // Get specific class type
+            let classType = 'Online Yoga at Home';
+            if (typeof getCurrentClassType === 'function') {
+                classType = getCurrentClassType();
+            } else {
+                const activeTab = document.querySelector('.class-tab.selected');
+                if (activeTab) {
+                    const tabId = activeTab.id;
+                    if (tabId && tabId.includes('meditation')) {
+                        classType = 'Online Meditation Class';
+                    } else if (tabId && tabId.includes('therapeutic')) {
+                        classType = 'Online Therapeutic Yoga';
+                    } else if (tabId && tabId.includes('ashtanga')) {
+                        classType = 'Online Ashtanga Yoga';
+                    }
+                }
+            }
+            
             // Online Yoga booking message
-            message = `🧘‍♀️ *Online Yoga at Home - Booking Request*\n\n`;
+            message = `🧘‍♀️ *${classType} - Booking Request*\n\n`;
             message += `👤 *Name:* ${name}\n`;
             message += `📧 *Email:* ${email}\n`;
             message += `📱 *Phone:* ${phone}\n\n`;
+            message += `🎯 *Class Type:* ${classType}\n`;
             message += `💻 *Membership Plan:* ${this.getAccommodationText(selectedAccommodation.value)}\n`;
             message += `💰 *Amount:* ₹${amount.toLocaleString()}\n\n`;
             if (specialRequirements) message += `📝 *Special Requirements:* ${specialRequirements}\n\n`;

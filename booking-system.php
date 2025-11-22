@@ -96,11 +96,11 @@ function createBooking() {
     try {
         $stmt = $pdo->prepare("
             INSERT INTO bookings (
-                booking_id, name, email, phone, program, accommodation, 
-                occupancy, amount, payment_status, payment_link, 
+                booking_id, name, email, phone, program, class_type, membership_plan,
+                accommodation, occupancy, amount, payment_status, payment_link, 
                 created_at, check_in_date, check_out_date, 
                 special_requirements, emergency_contact
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending', ?, NOW(), ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', ?, NOW(), ?, ?, ?, ?)
         ");
         
         $stmt->execute([
@@ -109,6 +109,8 @@ function createBooking() {
             $_POST['email'],
             $_POST['phone'],
             $_POST['program'],
+            $_POST['class_type'] ?? $_POST['program'], // Use class_type if provided, otherwise fallback to program
+            $_POST['membership_plan'] ?? null, // Only for online classes
             $_POST['accommodation'],
             $_POST['occupancy'],
             $_POST['amount'],

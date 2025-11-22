@@ -1,235 +1,81 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Online Yoga Classes - Natureland–YogChetna">
-    <meta name="author" content="">
-    <title>Online Yoga - Natureland–YogChetna</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natureland - Yog Chetna</title>
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link
         href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800|Old+Standard+TT:400,400i,700"
         rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"><link rel="stylesheet" href="css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/image-improvements.css">
     <link rel="stylesheet" href="css/overflow-fixes.css">
     <link rel="stylesheet" href="css/booking-modal.css">
     
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQ3NWR31YH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  gtag('config', 'G-HQ3NWR31YH');
-</script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, #2d5a27 0%, #5ba17a 50%, #f4a261 100%);
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+        /* Custom Fade Animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
         }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .explore-btn {
-            background: #00d4aa;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
-        }
-
-        .explore-btn:hover {
-            background: #00b894;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 212, 170, 0.4);
-        }
-
-        /* Yoga Classes Section */
-        .yoga-classes-section {
-            padding: 80px 0;
-            background: #0a2e13;
-            color: white;
-        }
-
-        .class-item {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .class-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .class-description {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        /* Pricing Cards */
-        .pricing-section {
-            padding: 60px 0;
-            background: #0a2e13;
-        }
-
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px 25px;
-            margin-bottom: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #00d4aa;
-        }
-
-        .pricing-card.popular {
-            border-color: #00d4aa;
-            background: rgba(0, 212, 170, 0.1);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #00d4aa;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .plan-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .plan-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #00d4aa;
-            margin-bottom: 5px;
-        }
-
-        .plan-period {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-bottom: 25px;
-            color: white;
-        }
-
-        .plan-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        .plan-features li {
-            padding: 8px 0;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-        }
-
-        .plan-features li:before {
-            content: "✓";
-            color: #00d4aa;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .choose-plan-btn {
-            background: transparent;
-            border: 2px solid #00d4aa;
-            color: #00d4aa;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .choose-plan-btn:hover {
-            background: #00d4aa;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .pricing-card.popular .choose-plan-btn {
-            background: #00d4aa;
-            color: white;
-        }
-
-        .pricing-card.popular .choose-plan-btn:hover {
-            background: #00b894;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .class-title {
-                font-size: 2rem;
-            }
-            
-            .pricing-card {
-                margin-bottom: 20px;
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-emerald-200 selection:text-emerald-900">
 
-<body>
-    <!-- Header section Start-->
+    <!-- Header section Start -->
     <header class="top">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -241,8 +87,9 @@
             <a href="gallery.html">Facilities & Therapies</a>
             <a class="active" href="online-classes.html">Online Yoga</a>
             <a href="contact.html">Contact</a>
+            <a href="admin.html" style="color: #d26e0b;">Admin</a>
         </div>
-
+        <!-- Nav section Start -->
         <nav id="navbar">
             <!-- container Start-->
             <div class="container">
@@ -263,10 +110,10 @@
                             </div>
                         </div>
                         <div class="social-icons another">
-                            <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                            <a href="#" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                            <a href="https://wa.me/918969464548" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -274,311 +121,398 @@
             </div>
             <!-- container Ended-->
         </nav>
+        <!-- Nav section Ended -->
         <img class="border-img" src="images/border.png" width="100%" alt="">
     </header>
     <!-- Header section Ended-->
 
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- HERO SECTION -->
+    <div class="relative bg-stone-50 pt-16 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        <!-- Decorative Element -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-emerald-50/50 rounded-l-full opacity-60 translate-x-1/4 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-white px-4 py-1.5 rounded-full shadow-sm mb-6 border border-stone-100 animate-bounce-slow">
+                    <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+                    <span class="text-sm font-medium text-stone-600">Transform your life from home</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-stone-800 mb-6 leading-tight">
+                    Online Yoga <span class="text-emerald-600 italic">At Home</span>
+                </h1>
+                
+                <p class="text-xl text-stone-600 mb-8 leading-relaxed font-medium">
+                    Your comfort • Your time • Your wellness
+                </p>
+                
+                <p class="text-stone-500 mb-10 max-w-2xl mx-auto text-lg">
+                    Experience live, interactive yoga classes. Perfect for housewives, senior citizens, and busy professionals who want a healthy routine without stepping outside.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="openBookingModal('online')" class="bg-emerald-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 group">
+                        Join Online Classes <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <a href="#classes" class="bg-white text-stone-700 border border-stone-200 px-8 py-3.5 rounded-full font-semibold hover:bg-stone-50 transition-all flex items-center justify-center">
+                        Explore Classes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLASSES SECTION -->
+    <section id="classes" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-stone-800 mb-4">Our Specialized Programs</h2>
+                <p class="text-stone-500 max-w-2xl mx-auto">
+                    Whether you seek physical strength, mental peace, or therapeutic healing, we have a perfectly designed path for you.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Sidebar Navigation -->
+                <div class="lg:col-span-4 flex flex-col gap-3">
+                    <!-- Button 1 -->
+                    <button onclick="switchTab('home-yoga')" id="btn-home-yoga" class="class-tab active w-full text-left transition-all duration-300 rounded-2xl p-4 flex items-center gap-4 border bg-emerald-600 text-white border-emerald-600 shadow-lg shadow-emerald-200 scale-[1.02]">
+                        <div class="p-2 rounded-full bg-white/20 icon-container">
+                            <i data-lucide="home" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Online Yoga at Home</h3>
+                            <p class="text-xs opacity-80 status-text">Viewing details</p>
+                        </div>
+                    </button>
+
+                    <!-- Button 2 -->
+                    <button onclick="switchTab('meditation')" id="btn-meditation" class="class-tab w-full text-left transition-all duration-300 rounded-2xl p-4 flex items-center gap-4 border bg-white text-stone-600 border-stone-100 hover:border-emerald-200 hover:bg-emerald-50">
+                        <div class="p-2 rounded-full bg-stone-100 text-stone-500 icon-container">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Meditation Class</h3>
+                            <p class="text-xs text-stone-400 status-text">Click to view details</p>
+                        </div>
+                    </button>
+
+                    <!-- Button 3 -->
+                    <button onclick="switchTab('therapeutic')" id="btn-therapeutic" class="class-tab w-full text-left transition-all duration-300 rounded-2xl p-4 flex items-center gap-4 border bg-white text-stone-600 border-stone-100 hover:border-emerald-200 hover:bg-emerald-50">
+                        <div class="p-2 rounded-full bg-stone-100 text-stone-500 icon-container">
+                            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Therapeutic Yoga</h3>
+                            <p class="text-xs text-stone-400 status-text">Click to view details</p>
+                        </div>
+                    </button>
+
+                    <!-- Button 4 -->
+                    <button onclick="switchTab('ashtanga')" id="btn-ashtanga" class="class-tab w-full text-left transition-all duration-300 rounded-2xl p-4 flex items-center gap-4 border bg-white text-stone-600 border-stone-100 hover:border-emerald-200 hover:bg-emerald-50">
+                        <div class="p-2 rounded-full bg-stone-100 text-stone-500 icon-container">
+                            <i data-lucide="flame" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Ashtanga Yoga</h3>
+                            <p class="text-xs text-stone-400 status-text">Click to view details</p>
+                        </div>
+                    </button>
+
+                    <div class="mt-6 bg-emerald-50 rounded-2xl p-6 border border-emerald-100">
+                        <p class="text-emerald-800 text-sm italic">
+                          "Yoga is the journey of the self, through the self, to the self."
+                        </p>
+                     </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="lg:col-span-8 relative min-h-[500px]">
+                    
+                    <!-- Content 1: Home Yoga -->
+                    <div id="content-home-yoga" class="class-content bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-stone-100 h-full fade-in">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                                <i data-lucide="home" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-800">Online Yoga at Home</h2>
+                                <p class="text-emerald-600 font-medium">Your comfort • Your time • Your wellness</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 leading-relaxed mb-8 border-b border-stone-100 pb-6">
+                            Experience live, interactive yoga classes right from your home. Perfect for housewives, senior citizens, and busy corporate professionals who want a healthy routine without stepping outside.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-stone-800 mb-4 flex items-center gap-2">
+                                    <i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> What You Get
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Live, convenient online classes</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Flexible timings as per your schedule</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>1 to 1.5-hour sessions</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Beginner to intermediate & advanced-level guidance</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Regular practice for stress relief</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 rounded-2xl p-6">
+                                <h4 class="font-bold text-stone-800 mb-3 text-sm uppercase tracking-wide">Join Us</h4>
+                                <p class="text-stone-600 text-sm">Bring wellness into your life—one session at a time.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content 2: Meditation -->
+                    <div id="content-meditation" class="class-content hidden bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-stone-100 h-full fade-in">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                                <i data-lucide="brain" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-800">Online Meditation Class</h2>
+                                <p class="text-emerald-600 font-medium">Calm mind • Inner clarity • Deep transformation</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 leading-relaxed mb-8 border-b border-stone-100 pb-6">
+                            Our specialized online meditation class helps you understand the basics, importance, and powerful techniques of meditation in a simple and practical way.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-stone-800 mb-4 flex items-center gap-2">
+                                    <i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> What You Learn
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Foundations and principles of meditation</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Holistic mental, emotional & spiritual benefits</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Expert-led guidance in every session</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 rounded-2xl p-6">
+                                <h4 class="font-bold text-stone-800 mb-3 text-sm uppercase tracking-wide">Practices</h4>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-white border border-stone-200 px-3 py-1 rounded-full text-stone-600">Surya Dhyana</span>
+                                    <span class="text-xs bg-white border border-stone-200 px-3 py-1 rounded-full text-stone-600">Nada Yoga</span>
+                                    <span class="text-xs bg-white border border-stone-200 px-3 py-1 rounded-full text-stone-600">Trataka</span>
+                                    <span class="text-xs bg-white border border-stone-200 px-3 py-1 rounded-full text-stone-600">Chakra</span>
+                                    <span class="text-xs bg-white border border-stone-200 px-3 py-1 rounded-full text-stone-600">Yoga Nidra</span>
+                                </div>
+                                <h4 class="font-bold text-stone-800 mb-2 text-sm uppercase tracking-wide mt-4">Class Details</h4>
+                                <ul class="space-y-1">
+                                    <li class="text-stone-600 text-xs flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3 text-emerald-500"></i> 1 to 1.5-hour live sessions</li>
+                                    <li class="text-stone-600 text-xs flex items-center gap-2"><i data-lucide="user" class="w-3 h-3 text-emerald-500"></i> Suitable for all levels</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content 3: Therapeutic -->
+                    <div id="content-therapeutic" class="class-content hidden bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-stone-100 h-full fade-in">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                                <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-800">Therapeutic Yoga</h2>
+                                <p class="text-emerald-600 font-medium">Healing • Balance • Recovery</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 leading-relaxed mb-8 border-b border-stone-100 pb-6">
+                            Designed to support your physical and mental well-being through personalised yoga guidance. Focuses on specific health needs, chronic pain, and stress-related issues.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-stone-800 mb-4 flex items-center gap-2">
+                                    <i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> What You Get
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>One-on-one consultation</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Personalised yoga plan</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Focus on lifestyle diseases & pain</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Scientific + holistic healing approach</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 rounded-2xl p-6">
+                                <h4 class="font-bold text-stone-800 mb-3 text-sm uppercase tracking-wide">Class Details</h4>
+                                <ul class="space-y-2">
+                                    <li class="text-stone-600 text-xs flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3 text-emerald-500"></i> 1 to 2-hour live sessions</li>
+                                    <li class="text-stone-600 text-xs flex items-center gap-2"><i data-lucide="calendar" class="w-3 h-3 text-emerald-500"></i> Customized schedule</li>
+                                    <li class="text-stone-600 text-xs flex items-center gap-2"><i data-lucide="user" class="w-3 h-3 text-emerald-500"></i> Expert monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content 4: Ashtanga -->
+                    <div id="content-ashtanga" class="class-content hidden bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-stone-100 h-full fade-in">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                                <i data-lucide="flame" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-800">Ashtanga Yoga</h2>
+                                <p class="text-emerald-600 font-medium">Discipline • Knowledge • Transformation</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 leading-relaxed mb-8 border-b border-stone-100 pb-6">
+                            An advanced-level program based on Maharshi Patanjali’s Eightfold Path. Deepens your yogic knowledge while strengthening your physical, mental, and spiritual foundation.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-stone-800 mb-4 flex items-center gap-2">
+                                    <i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> What You Learn
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>The Eight limbs of yoga</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Ancient yogic principles</li>
+                                    <li class="text-stone-600 text-sm flex items-start gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>Traditional cleansing (Shatkarmas)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 rounded-2xl p-6">
+                                <h4 class="font-bold text-stone-800 mb-3 text-sm uppercase tracking-wide">Highlights</h4>
+                                <ul class="space-y-2">
+                                    <li class="text-stone-600 text-xs flex items-start gap-2"><i data-lucide="star" class="w-3 h-3 text-amber-400 mt-1"></i> Advanced-level practice</li>
+                                    <li class="text-stone-600 text-xs flex items-start gap-2"><i data-lucide="star" class="w-3 h-3 text-amber-400 mt-1"></i> Physical purity & mental clarity</li>
+                                    <li class="text-stone-600 text-xs flex items-start gap-2"><i data-lucide="star" class="w-3 h-3 text-amber-400 mt-1"></i> Spiritual upliftment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP SECTION -->
+    <section id="membership" class="py-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-stone-800 mb-4">Simple Membership Plans</h2>
+                <p class="text-stone-500">Flexible • Affordable • Holistic Support</p>
+                <p class="mt-4 text-sm text-stone-400 bg-white inline-block px-4 py-2 rounded-full shadow-sm">
+                    ✨ All plans apply to any class type
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+                
+                <!-- Plan 1 -->
+                <div class="bg-white text-stone-800 border border-stone-200 shadow-lg hover:border-emerald-200 hover:shadow-xl relative rounded-3xl p-8 transition-all duration-300 flex flex-col h-full">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold mb-2 text-emerald-700">Weekly Plan</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-serif font-bold">₹1499</span>
+                            <span class="text-sm text-stone-500">/week</span>
+                        </div>
+                        <p class="text-sm mt-3 text-stone-500">Best for: Beginners & Trial</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>5 live sessions (1–2 hours each)</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>Session recordings included</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>Expert support anytime</span></li>
+                    </ul>
+                    <button onclick="openBookingModal('online')" class="w-full py-3 rounded-xl font-bold transition-colors bg-stone-100 hover:bg-stone-200 text-stone-800">Choose Plan</button>
+                </div>
+
+                <!-- Plan 2 (Highlighted) -->
+                <div class="bg-stone-900 text-white shadow-2xl scale-105 z-10 ring-4 ring-emerald-500/20 relative rounded-3xl p-8 transition-all duration-300 flex flex-col h-full">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">Most Popular</div>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold mb-2 text-emerald-400">Monthly Plan</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-serif font-bold">₹3999</span>
+                            <span class="text-sm text-stone-400">/month</span>
+                        </div>
+                        <p class="text-sm mt-3 text-stone-300">Best for: Consistent Practice</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-400"></i> <span>20+ live classes</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-400"></i> <span>All recordings for revision</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-400"></i> <span>Personalised guidance</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-400"></i> <span>Diet plans included</span></li>
+                    </ul>
+                    <button onclick="openBookingModal('online')" class="w-full py-3 rounded-xl font-bold transition-colors bg-emerald-500 hover:bg-emerald-400 text-white">Choose Plan</button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="bg-white text-stone-800 border border-stone-200 shadow-lg hover:border-emerald-200 hover:shadow-xl relative rounded-3xl p-8 transition-all duration-300 flex flex-col h-full">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold mb-2 text-emerald-700">Quarterly Plan</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-serif font-bold">₹9999</span>
+                            <span class="text-sm text-stone-500">/quarter</span>
+                        </div>
+                        <p class="text-sm mt-3 text-stone-500">Best for: Total Transformation</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>20 live classes/month</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>Direct expert support</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>Special counselling</span></li>
+                    </ul>
+                    <button onclick="openBookingModal('online')" class="w-full py-3 rounded-xl font-bold transition-colors bg-stone-100 hover:bg-stone-200 text-stone-800">Choose Plan</button>
+                </div>
+
+                <!-- Plan 4 -->
+                <div class="bg-white text-stone-800 border border-stone-200 shadow-lg hover:border-emerald-200 hover:shadow-xl relative rounded-3xl p-8 transition-all duration-300 flex flex-col h-full">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold mb-2 text-emerald-700">Flexible Plan</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-serif font-bold">₹500</span>
+                            <span class="text-sm text-stone-500">/session</span>
+                        </div>
+                        <p class="text-sm mt-3 text-stone-500">Best for: Occasional Practice</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>Pay-per-session</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>Expert-led guidance</span></li>
+                        <li class="flex items-start gap-3 text-sm"><i data-lucide="check" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i> <span>No long-term commitment</span></li>
+                    </ul>
+                    <button onclick="openBookingModal('online')" class="w-full py-3 rounded-xl font-bold transition-colors bg-stone-100 hover:bg-stone-200 text-stone-800">Choose Plan</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section start-->
+    <footer class="contact">
+        <!-- Gradient -->
+        <div class="gradient"></div>
+        <!-- container Start-->
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Find Your Flow. Begin Your Journey.</h1>
-                        <p class="hero-subtitle">Explore our diverse range of yoga and meditation classes designed to nurture your mind, body, and soul.</p>
-                        <button class="explore-btn" onclick="document.getElementById('classes-section').scrollIntoView({behavior: 'smooth'})">Explore Classes</button>
-                    </div>
+                <div class="col-lg-6 col-md-12 col-12 columns-1">
+                    <h2>Our Address</h2>
+                    <address>
+                        <p>The Nature Land, Village Cholagora</p>
+                        <p>Jamshedpur–Galudih Road, Ghatsila, Jamshedpur, Jharkhand – 832304</p>
+                        <p>Visiting Hours : 7:00 AM – 7:00 PM (All Days)</p>
+                        <p>Call for Bookings : <span>+91-8969464548</span></p>
+                        <p>Email : <span>naturelandyogchetna@gmail.com</span></p>
+                    </address>
+                </div>
+                <div class="col-lg-1 col-md-12 col-12"></div>
+                <div class="col-lg-5 col-md-12 col-12 columns-2">
+                    <h2>Quick Contact</h2>
+                    <form class="row form-inline">
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <textarea class="form-control" placeholder="Message" rows="5" cols="70"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Yoga Classes Section -->
-    <section class="yoga-classes-section" id="classes-section">""
-        <div class="container">
-            <!-- Vinyasa Flow Class -->
-            <div class="class-item">
-                <h2 class="class-title">Vinyasa Flow</h2>
-                <p class="class-description">A dynamic practice that links breath with movement, building strength, flexibility, and inner peace. Perfect for all levels.</p>
-                
-                <!-- Vinyasa Flow Pricing -->
-                <div class="row pricing-section">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Weekly</h3>
-                            <div class="plan-price">₹1499</div>
-                            <div class="plan-period">per week</div>
-                            <ul class="plan-features">
-                                <li>5 live sessions</li>
-                                <li>Access to recordings</li>
-                                <li>Perfect for trying us out</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('vinyasa-weekly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card popular">
-                            <div class="popular-badge">Most Popular</div>
-                            <h3 class="plan-name">Monthly</h3>
-                            <div class="plan-price">₹3999</div>
-                            <div class="plan-period">per month</div>
-                            <ul class="plan-features">
-                                <li>20+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('vinyasa-monthly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <div class="popular-badge" style="background: #dc3545;">Best Value</div>
-                            <h3 class="plan-name">Quarterly</h3>
-                            <div class="plan-price">₹9999</div>
-                            <div class="plan-period">per quarter</div>
-                            <ul class="plan-features">
-                                <li>60+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('vinyasa-quarterly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Flexible</h3>
-                            <div class="plan-price">₹500</div>
-                            <div class="plan-period">per session</div>
-                            <ul class="plan-features">
-                                <li>Valid for 6 months</li>
-                                <li>Access to recordings</li>
-                                <li>For the busy yogi</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('vinyasa-flexible')">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Online Meditation Class -->
-            <div class="class-item">
-                <h2 class="class-title">Online Meditation</h2>
-                <p class="class-description">Calm mind • Inner clarity • Deep transformation. Learn ancient meditation techniques in a simple and practical way.</p>
-                
-                <!-- Meditation Pricing -->
-                <div class="row pricing-section">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Weekly</h3>
-                            <div class="plan-price">₹1499</div>
-                            <div class="plan-period">per week</div>
-                            <ul class="plan-features">
-                                <li>5 live sessions</li>
-                                <li>Access to recordings</li>
-                                <li>Perfect for trying us out</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('meditation-weekly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card popular">
-                            <div class="popular-badge">Most Popular</div>
-                            <h3 class="plan-name">Monthly</h3>
-                            <div class="plan-price">₹3999</div>
-                            <div class="plan-period">per month</div>
-                            <ul class="plan-features">
-                                <li>20+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('meditation-monthly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <div class="popular-badge" style="background: #dc3545;">Best Value</div>
-                            <h3 class="plan-name">Quarterly</h3>
-                            <div class="plan-price">₹9999</div>
-                            <div class="plan-period">per quarter</div>
-                            <ul class="plan-features">
-                                <li>60+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('meditation-quarterly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Flexible</h3>
-                            <div class="plan-price">₹500</div>
-                            <div class="plan-period">per session</div>
-                            <ul class="plan-features">
-                                <li>Valid for 6 months</li>
-                                <li>Access to recordings</li>
-                                <li>For the busy yogi</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('meditation-flexible')">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Therapeutic Yoga -->
-            <div class="class-item">
-                <h2 class="class-title">Therapeutic Yoga</h2>
-                <p class="class-description">Healing • Balance • Recovery. Personalized yoga guidance for your specific health needs and wellness goals.</p>
-                
-                <!-- Therapeutic Pricing -->
-                <div class="row pricing-section">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Weekly</h3>
-                            <div class="plan-price">₹1499</div>
-                            <div class="plan-period">per week</div>
-                            <ul class="plan-features">
-                                <li>5 live sessions</li>
-                                <li>Access to recordings</li>
-                                <li>Perfect for trying us out</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('therapeutic-weekly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card popular">
-                            <div class="popular-badge">Most Popular</div>
-                            <h3 class="plan-name">Monthly</h3>
-                            <div class="plan-price">₹3999</div>
-                            <div class="plan-period">per month</div>
-                            <ul class="plan-features">
-                                <li>20+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('therapeutic-monthly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <div class="popular-badge" style="background: #dc3545;">Best Value</div>
-                            <h3 class="plan-name">Quarterly</h3>
-                            <div class="plan-price">₹9999</div>
-                            <div class="plan-period">per quarter</div>
-                            <ul class="plan-features">
-                                <li>60+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('therapeutic-quarterly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Flexible</h3>
-                            <div class="plan-price">₹500</div>
-                            <div class="plan-period">per session</div>
-                            <ul class="plan-features">
-                                <li>Valid for 6 months</li>
-                                <li>Access to recordings</li>
-                                <li>For the busy yogi</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('therapeutic-flexible')">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ashtanga Yoga -->
-            <div class="class-item">
-                <h2 class="class-title">Ashtanga Yoga</h2>
-                <p class="class-description">Discipline • Knowledge • Transformation. Advanced practice based on Maharshi Patanjali's Eightfold Path.</p>
-                
-                <!-- Ashtanga Pricing -->
-                <div class="row pricing-section">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Weekly</h3>
-                            <div class="plan-price">₹1499</div>
-                            <div class="plan-period">per week</div>
-                            <ul class="plan-features">
-                                <li>5 live sessions</li>
-                                <li>Access to recordings</li>
-                                <li>Perfect for trying us out</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('ashtanga-weekly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card popular">
-                            <div class="popular-badge">Most Popular</div>
-                            <h3 class="plan-name">Monthly</h3>
-                            <div class="plan-price">₹3999</div>
-                            <div class="plan-period">per month</div>
-                            <ul class="plan-features">
-                                <li>20+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('ashtanga-monthly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <div class="popular-badge" style="background: #dc3545;">Best Value</div>
-                            <h3 class="plan-name">Quarterly</h3>
-                            <div class="plan-price">₹9999</div>
-                            <div class="plan-period">per quarter</div>
-                            <ul class="plan-features">
-                                <li>60+ live classes</li>
-                                <li>Access to recordings</li>
-                                <li>Workshop discounts</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('ashtanga-quarterly')">Choose Plan</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="pricing-card">
-                            <h3 class="plan-name">Flexible</h3>
-                            <div class="plan-price">₹500</div>
-                            <div class="plan-period">per session</div>
-                            <ul class="plan-features">
-                                <li>Valid for 6 months</li>
-                                <li>Access to recordings</li>
-                                <li>For the busy yogi</li>
-                            </ul>
-                            <button class="choose-plan-btn" onclick="openBookingModal('ashtanga-flexible')">Choose Plan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Information -->
-            
-
-            <!-- Contact Information -->
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="alert alert-info text-center">
-                        <h4><i class="fa fa-info-circle"></i> How to Join Online Yoga</h4>
-                        <p class="mb-3">Ready to start your online yoga journey? Contact us to book your classes or membership.</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p><strong><i class="fa fa-whatsapp"></i> WhatsApp:</strong> +91-8969464548</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p><strong><i class="fa fa-envelope"></i> Email:</strong> naturelandyogchetna@gmail.com
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Online Yoga Section End -->
-
-    <footer class="contact">
-        <div class="gradient"></div>
+        <!-- container Ended-->
         <div class="copyright">
             <div class="container">
                 <div class="row border-img">
@@ -604,7 +538,7 @@
                             <li><a class="hidden-xs">~</a></li>
                             <li class="nav-item"><a class="nav-link" href="courses.html">Retreat Programs</a></li>
                             <li><a class="hidden-xs">~</a></li>
-                            <li class="nav-item"><a class="nav-link" href="online-classes.html">Online Yoga</a></li>
+                            <li class="nav-item active"><a class="nav-link active" href="online-classes.html">Online Yoga</a></li>
                             <li><a class="hidden-xs">~</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
@@ -614,6 +548,8 @@
             </div>
         </div>
     </footer>
+    <!-- Footer section Ended-->
+    
     <!-- Return to Top -->
     <a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
@@ -625,30 +561,87 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <!-- Custom JavaScript --><script src="js/custom.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <script src="js/admin-integration.js"></script>
     <script src="js/booking-modal.js"></script>
 
     <script>
-        function bookClass(className, price) {
-            const message = `🧘‍♀️ *ONLINE CLASS BOOKING REQUEST*
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-📚 *Class Details:*
-• Class Name: ${className}
-• Price: ₹${price}
+        // Tab Logic
+        function switchTab(tabId) {
+            // 1. Hide all content
+            const contents = document.querySelectorAll('.class-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
 
-👤 *Booking Request:*
-I would like to book the ${className}. Please provide me with:
-- Available time slots
-- Payment details
-- Class joining instructions
-- Any prerequisites
+            // 2. Show selected content
+            const selectedContent = document.getElementById('content-' + tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
 
-Thank you for your assistance!`;
+            // 3. Reset all buttons to inactive state
+            const buttons = document.querySelectorAll('.class-tab');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600', 'shadow-lg', 'scale-[1.02]', 'selected');
+                btn.classList.add('bg-white', 'text-stone-600', 'border-stone-100');
+                
+                // Reset Icon colors inside button
+                const iconContainer = btn.querySelector('.icon-container');
+                iconContainer.classList.remove('bg-white/20');
+                iconContainer.classList.add('bg-stone-100', 'text-stone-500');
 
-            const whatsappUrl = `https://wa.me/918969464548?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+                // Update text status
+                const statusText = btn.querySelector('.status-text');
+                statusText.textContent = 'Click to view details';
+                statusText.classList.remove('opacity-80', 'text-emerald-100');
+                statusText.classList.add('text-stone-400');
+            });
+
+            // 4. Set active button state
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-stone-600', 'border-stone-100');
+                activeBtn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600', 'shadow-lg', 'scale-[1.02]', 'selected');
+                
+                // Set Icon colors
+                const iconContainer = activeBtn.querySelector('.icon-container');
+                iconContainer.classList.remove('bg-stone-100', 'text-stone-500');
+                iconContainer.classList.add('bg-white/20');
+
+                // Update text status
+                const statusText = activeBtn.querySelector('.status-text');
+                statusText.textContent = 'Viewing details';
+                statusText.classList.remove('text-stone-400');
+                statusText.classList.add('opacity-80');
+            }
+            
+            // Store current active tab for booking modal
+            window.currentActiveClassType = tabId;
         }
+        
+        // Function to get current class type for booking
+        function getCurrentClassType() {
+            const activeTab = document.querySelector('.class-tab.selected');
+            if (activeTab) {
+                const tabId = activeTab.id.replace('btn-', '');
+                switch(tabId) {
+                    case 'meditation': return 'Online Meditation Class';
+                    case 'therapeutic': return 'Online Therapeutic Yoga';
+                    case 'ashtanga': return 'Online Ashtanga Yoga';
+                    case 'home-yoga':
+                    default: return 'Online Yoga at Home';
+                }
+            }
+            return 'Online Yoga at Home'; // default
+        }
+        
+        // Set initial active tab
+        window.currentActiveClassType = 'home-yoga';
     </script>
 </body>
-
 </html>
