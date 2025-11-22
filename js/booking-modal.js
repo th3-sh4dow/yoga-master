@@ -135,7 +135,7 @@ class BookingModal {
                                     <span>Program:</span>
                                     <span id="selectedProgram">-</span>
                                 </div>
-                                <div class="price-breakdown">
+                                <div class="price-breakdown" id="accommodationBreakdown">
                                     <span>Accommodation:</span>
                                     <span id="selectedAccommodation">-</span>
                                 </div>
@@ -552,9 +552,16 @@ class BookingModal {
         const checkInDate = this.modal.querySelector('#checkInDate');
         const checkOutDate = this.modal.querySelector('#checkOutDate');
         
-        // Show/hide sections based on program type
+        // For online classes, show membership plans (NO accommodation)
         if (this.currentProgram === 'online') {
-            accommodationSection.style.display = 'block'; // Show accommodation section for online
+            // Update section labels to reflect membership plans
+            const sectionLabel = accommodationSection.querySelector('label');
+            const sectionHelper = accommodationSection.querySelector('.form-text');
+            
+            if (sectionLabel) sectionLabel.textContent = 'Select Membership Plan *';
+            if (sectionHelper) sectionHelper.textContent = 'Choose your preferred online yoga membership plan';
+            
+            accommodationSection.style.display = 'block';
             dateSection.style.display = 'none'; // Hide date section for online
             
             // Completely disable and clear date fields for online yoga
@@ -570,51 +577,8 @@ class BookingModal {
                 checkOutDate.value = '';
                 checkOutDate.style.display = 'none';
             }
-        } else {
-            accommodationSection.style.display = 'block';
-            dateSection.style.display = 'block';
-            
-            // Re-enable and show date fields for retreat programs
-            if (checkInDate) {
-                checkInDate.setAttribute('required', 'required');
-                checkInDate.disabled = false;
-                checkInDate.style.display = 'block';
-            }
-            if (checkOutDate) {
-                checkOutDate.setAttribute('required', 'required');
-                checkOutDate.disabled = false;
-                checkOutDate.style.display = 'block';
-            }
-        }
 
-        container.innerHTML = `
-            <div class="accommodation-option" data-value="garden_single">
-                <input type="radio" name="accommodation" value="garden_single" required>
-                <strong>Garden Cottage</strong><br>
-                <small>Single Occupancy</small>
-            </div>
-            <div class="accommodation-option" data-value="garden_double">
-                <input type="radio" name="accommodation" value="garden_double" required>
-                <strong>Garden Cottage</strong><br>
-                <small>Double Occupancy</small>
-            </div>
-            <div class="accommodation-option" data-value="premium_single">
-                <input type="radio" name="accommodation" value="premium_single" required>
-                <strong>Premium Cottage</strong><br>
-                <small>Single Occupancy</small>
-            </div>
-            <div class="accommodation-option" data-value="premium_double">
-                <input type="radio" name="accommodation" value="premium_double" required>
-                <strong>Premium Cottage</strong><br>
-                <small>Double Occupancy</small>
-            </div>
-        `;
-        
-        // Add click event listeners
-        this.addAccommodationClickHandlers();
-
-        // For online classes, show different options
-        if (this.currentProgram === 'online') {
+            // Show membership plans (not accommodation)
             container.innerHTML = `
                 <div class="accommodation-option" data-value="weekly">
                     <input type="radio" name="accommodation" value="weekly" required>
@@ -641,6 +605,58 @@ class BookingModal {
             // Add click event listeners
             this.addAccommodationClickHandlers();
             return; // Important: return here to prevent the regular accommodation setup
+        } 
+        
+        // For retreat programs, show accommodation with occupancy
+        else {
+            // Update section labels to reflect accommodation
+            const sectionLabel = accommodationSection.querySelector('label');
+            const sectionHelper = accommodationSection.querySelector('.form-text');
+            
+            if (sectionLabel) sectionLabel.textContent = 'Accommodation Type & Occupancy *';
+            if (sectionHelper) sectionHelper.textContent = 'Choose your accommodation and occupancy preference';
+            
+            accommodationSection.style.display = 'block';
+            dateSection.style.display = 'block';
+            
+            // Re-enable and show date fields for retreat programs
+            if (checkInDate) {
+                checkInDate.setAttribute('required', 'required');
+                checkInDate.disabled = false;
+                checkInDate.style.display = 'block';
+            }
+            if (checkOutDate) {
+                checkOutDate.setAttribute('required', 'required');
+                checkOutDate.disabled = false;
+                checkOutDate.style.display = 'block';
+            }
+
+            // Show accommodation options
+            container.innerHTML = `
+                <div class="accommodation-option" data-value="garden_single">
+                    <input type="radio" name="accommodation" value="garden_single" required>
+                    <strong>Garden Cottage</strong><br>
+                    <small>Single Occupancy</small>
+                </div>
+                <div class="accommodation-option" data-value="garden_double">
+                    <input type="radio" name="accommodation" value="garden_double" required>
+                    <strong>Garden Cottage</strong><br>
+                    <small>Double Occupancy</small>
+                </div>
+                <div class="accommodation-option" data-value="premium_single">
+                    <input type="radio" name="accommodation" value="premium_single" required>
+                    <strong>Premium Cottage</strong><br>
+                    <small>Single Occupancy</small>
+                </div>
+                <div class="accommodation-option" data-value="premium_double">
+                    <input type="radio" name="accommodation" value="premium_double" required>
+                    <strong>Premium Cottage</strong><br>
+                    <small>Double Occupancy</small>
+                </div>
+            `;
+            
+            // Add click event listeners
+            this.addAccommodationClickHandlers();
         }
     }
 
@@ -662,14 +678,29 @@ class BookingModal {
         const accommodationHelper = this.modal.querySelector('#accommodationSection .form-text');
         
         if (programKey === 'online' || programKey === 'Online Yoga at Home') {
-            accommodationLabel.textContent = 'Select Membership Plan *';
-            accommodationHelper.textContent = 'Choose your preferred online yoga membership plan';
+            if (accommodationLabel) accommodationLabel.textContent = 'Select Membership Plan *';
+            if (accommodationHelper) accommodationHelper.textContent = 'Choose your preferred online yoga membership plan';
         } else {
-            accommodationLabel.textContent = 'Accommodation Type & Occupancy *';
-            accommodationHelper.textContent = 'Choose your accommodation and occupancy preference';
+            if (accommodationLabel) accommodationLabel.textContent = 'Accommodation Type & Occupancy *';
+            if (accommodationHelper) accommodationHelper.textContent = 'Choose your accommodation and occupancy preference';
         }
 
         this.populateAccommodationOptions();
+        
+        // Update the price summary label immediately, even if no accommodation is selected yet
+        const accommodationBreakdown = this.modal.querySelector('#accommodationBreakdown span:first-child') || 
+                                     this.modal.querySelector('.price-breakdown span:first-child');
+        
+        if (accommodationBreakdown) {
+            if (programKey === 'online' || programKey === 'Online Yoga at Home') {
+                accommodationBreakdown.textContent = 'Membership Plan:';
+                console.log('Program changed to online - updated label to: Membership Plan:');
+            } else {
+                accommodationBreakdown.textContent = 'Accommodation:';
+                console.log('Program changed to retreat - updated label to: Accommodation:');
+            }
+        }
+        
         this.updatePriceSummary();
         
         // Auto-calculate check-out date if check-in is already selected (only for non-online programs)
@@ -682,7 +713,16 @@ class BookingModal {
         const selectedProgram = this.modal.querySelector('input[name="program"]:checked');
         const selectedAccommodation = this.modal.querySelector('input[name="accommodation"]:checked');
 
-        if (!selectedProgram || !selectedAccommodation) return;
+        console.log('updatePriceSummary called:', {
+            selectedProgram: selectedProgram?.value,
+            selectedAccommodation: selectedAccommodation?.value,
+            currentProgram: this.currentProgram
+        });
+
+        if (!selectedProgram || !selectedAccommodation) {
+            console.log('Missing selection, returning early');
+            return;
+        }
 
         const program = this.programs[selectedProgram.value];
         const accommodationType = selectedAccommodation.value;
@@ -692,16 +732,40 @@ class BookingModal {
         this.modal.querySelector('#selectedProgram').textContent = program.title;
         this.modal.querySelector('#selectedDuration').textContent = program.duration;
         
+        // Update the accommodation/plan text based on program type
         let accommodationText = '';
+        
+        // Find the accommodation breakdown element more reliably
+        const accommodationBreakdown = this.modal.querySelector('#accommodationBreakdown span:first-child') || 
+                                     this.modal.querySelector('.price-breakdown span:first-child');
+        
+        console.log('Found accommodationBreakdown element:', accommodationBreakdown);
+        
         if (this.currentProgram === 'online') {
+            // For online classes, show membership plan (no accommodation)
             accommodationText = selectedAccommodation.parentElement.querySelector('strong').textContent;
+            if (accommodationBreakdown) {
+                accommodationBreakdown.textContent = 'Membership Plan:';
+                console.log('Updated label to: Membership Plan:');
+            }
         } else {
+            // For retreat programs, show accommodation details
             const parts = accommodationType.split('_');
             accommodationText = `${parts[0].charAt(0).toUpperCase() + parts[0].slice(1)} Cottage (${parts[1].charAt(0).toUpperCase() + parts[1].slice(1)} Occupancy)`;
+            if (accommodationBreakdown) {
+                accommodationBreakdown.textContent = 'Accommodation:';
+                console.log('Updated label to: Accommodation:');
+            }
         }
         
         this.modal.querySelector('#selectedAccommodation').textContent = accommodationText;
         this.modal.querySelector('#totalAmount').textContent = `₹${price.toLocaleString()}`;
+
+        console.log('Updated summary:', {
+            program: program.title,
+            accommodationText,
+            price: `₹${price.toLocaleString()}`
+        });
 
         // Update accommodation selection UI
         const accommodationOptions = this.modal.querySelectorAll('.accommodation-option');
@@ -813,7 +877,10 @@ class BookingModal {
         }
 
         if (!selectedAccommodation) {
-            this.addValidationError('#accommodationOptions', 'Please select a membership plan');
+            const errorMessage = this.currentProgram === 'online' ? 
+                'Please select a membership plan' : 
+                'Please select accommodation type and occupancy';
+            this.addValidationError('#accommodationOptions', errorMessage);
             return false;
         }
 
@@ -1176,6 +1243,7 @@ class BookingModal {
             message += `• Class schedule\n`;
             message += `• Joining instructions\n`;
             message += `• WhatsApp group link\n\n`;
+            message += `*Note:* This is for online classes only - no accommodation required.\n\n`;
             message += `Thank you! 🙏`;
         } else {
             // Retreat booking message
@@ -1191,7 +1259,8 @@ class BookingModal {
             if (checkOut) message += `📅 *Check-out:* ${checkOut}\n`;
             if (specialRequirements) message += `📝 *Special Requirements:* ${specialRequirements}\n`;
             
-            message += `\nPlease confirm my booking and share payment details. Thank you! 🙏`;
+            message += `\n*Note:* This includes accommodation and all retreat activities.\n\n`;
+            message += `Please confirm my booking and share payment details. Thank you! 🙏`;
         }
         
         // Open WhatsApp

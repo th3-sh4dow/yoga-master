@@ -83,14 +83,23 @@ function createBooking() {
     $_SESSION['current_booking_id'] = $booking_id;
     
     // Generate payment link (using specific Cashfree form URLs)
+    // For online classes, use membership plan as accommodation, for retreats use actual accommodation
+    $accommodation_for_payment = $_POST['accommodation'];
+    $occupancy_for_payment = $_POST['occupancy'];
+    
+    // If it's an online class, the accommodation field contains the membership plan
+    if (strpos($_POST['program'], 'Online') !== false || strpos($_POST['class_type'], 'Online') !== false) {
+        $occupancy_for_payment = 'online'; // Always 'online' for online classes
+    }
+    
     $payment_link = generatePaymentLink(
         $_POST['amount'], 
         $booking_id, 
         $_POST['name'], 
         $_POST['email'],
         $_POST['program'],
-        $_POST['accommodation'],
-        $_POST['occupancy']
+        $accommodation_for_payment,
+        $occupancy_for_payment
     );
     
     try {

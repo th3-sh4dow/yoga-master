@@ -31,11 +31,29 @@ class PaymentFormsConfig {
             'Weekend Wellness Yoga Retreat_premium_cottage_single' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Premium-Cottage-Single-Occupancy',
             'Weekend Wellness Yoga Retreat_premium_cottage_double' => 'https://payments.cashfree.com/forms/Weekend-Wellness-Premium-Cottage-Double-Occupancy',
             
-            // Online Yoga at Home - Membership Plans
+            // Online Yoga at Home - Membership Plans (no accommodation, just plan type)
             'Online Yoga at Home_weekly_online' => 'https://payments.cashfree.com/forms/Weekly-Membership-Plan',
             'Online Yoga at Home_monthly_online' => 'https://payments.cashfree.com/forms/Monthly-Membership-Plan',
             'Online Yoga at Home_quarterly_online' => 'https://payments.cashfree.com/forms/Quarterly-Membership-Plan',
-            'Online Yoga at Home_flexible_online' => 'https://payments.cashfree.com/forms/Flexible-Yoga-Plan'
+            'Online Yoga at Home_flexible_online' => 'https://payments.cashfree.com/forms/Flexible-Yoga-Plan',
+            
+            // Online Meditation Class - Membership Plans
+            'Online Meditation Class_weekly_online' => 'https://payments.cashfree.com/forms/Weekly-Membership-Plan',
+            'Online Meditation Class_monthly_online' => 'https://payments.cashfree.com/forms/Monthly-Membership-Plan',
+            'Online Meditation Class_quarterly_online' => 'https://payments.cashfree.com/forms/Quarterly-Membership-Plan',
+            'Online Meditation Class_flexible_online' => 'https://payments.cashfree.com/forms/Flexible-Yoga-Plan',
+            
+            // Online Therapeutic Yoga - Membership Plans
+            'Online Therapeutic Yoga_weekly_online' => 'https://payments.cashfree.com/forms/Weekly-Membership-Plan',
+            'Online Therapeutic Yoga_monthly_online' => 'https://payments.cashfree.com/forms/Monthly-Membership-Plan',
+            'Online Therapeutic Yoga_quarterly_online' => 'https://payments.cashfree.com/forms/Quarterly-Membership-Plan',
+            'Online Therapeutic Yoga_flexible_online' => 'https://payments.cashfree.com/forms/Flexible-Yoga-Plan',
+            
+            // Online Ashtanga Yoga - Membership Plans
+            'Online Ashtanga Yoga_weekly_online' => 'https://payments.cashfree.com/forms/Weekly-Membership-Plan',
+            'Online Ashtanga Yoga_monthly_online' => 'https://payments.cashfree.com/forms/Monthly-Membership-Plan',
+            'Online Ashtanga Yoga_quarterly_online' => 'https://payments.cashfree.com/forms/Quarterly-Membership-Plan',
+            'Online Ashtanga Yoga_flexible_online' => 'https://payments.cashfree.com/forms/Flexible-Yoga-Plan'
         ];
     }
     
